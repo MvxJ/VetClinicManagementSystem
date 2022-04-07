@@ -151,11 +151,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendar.Designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicines.Designer.cs">
+      <DependentUpon>Medicines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pets.Designer.cs">
+      <DependentUpon>Pets.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,8 +189,32 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserAdministration.Designer.cs">
+      <DependentUpon>UserAdministration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wiki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wiki.Designer.cs">
+      <DependentUpon>Wiki.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medicines.resx">
+      <DependentUpon>Medicines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pets.resx">
+      <DependentUpon>Pets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,6 +228,12 @@
     </Compile>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAdministration.resx">
+      <DependentUpon>UserAdministration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wiki.resx">
+      <DependentUpon>Wiki.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
