@@ -163,6 +163,7 @@
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +190,7 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="UserAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +203,7 @@
     <Compile Include="Wiki.Designer.cs">
       <DependentUpon>Wiki.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowState.cs" />
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.cs</DependentUpon>
     </EmbeddedResource>

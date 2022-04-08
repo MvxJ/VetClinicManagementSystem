@@ -36,7 +36,6 @@
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.LeftPannel = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -45,7 +44,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LogOutButton = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.UserText = new System.Windows.Forms.TextBox();
             this.LeftPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -54,6 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Button1
@@ -71,7 +76,6 @@
             this.guna2Button1.TabIndex = 3;
             this.guna2Button1.Text = "Calendar";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -180,17 +184,6 @@
             this.LeftPannel.Size = new System.Drawing.Size(240, 701);
             this.LeftPannel.TabIndex = 16;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(254, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 24);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Calendar";
-            // 
             // pictureBox7
             // 
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -297,6 +290,17 @@
             this.LogOutButton.TabIndex = 0;
             this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(254, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 24);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Calendar";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -310,12 +314,50 @@
             this.label3.Text = "-";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BorderRadius = 25;
+            this.guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2Panel1.Controls.Add(this.pictureBox8);
+            this.guna2Panel1.Controls.Add(this.UserText);
+            this.guna2Panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.guna2Panel1.FillColor = System.Drawing.Color.SeaGreen;
+            this.guna2Panel1.Location = new System.Drawing.Point(1077, 27);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(319, 56);
+            this.guna2Panel1.TabIndex = 22;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.SeaGreen;
+            this.pictureBox8.ErrorImage = null;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(61, 45);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 1;
+            this.pictureBox8.TabStop = false;
+            // 
+            // UserText
+            // 
+            this.UserText.BackColor = System.Drawing.Color.SeaGreen;
+            this.UserText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserText.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.UserText.ForeColor = System.Drawing.Color.White;
+            this.UserText.Location = new System.Drawing.Point(79, 19);
+            this.UserText.Name = "UserText";
+            this.UserText.Size = new System.Drawing.Size(145, 20);
+            this.UserText.TabIndex = 0;
+            this.UserText.Text = "Admin Admin";
+            // 
             // Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 699);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LeftPannel);
@@ -332,6 +374,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +401,8 @@
         private Guna.UI2.WinForms.Guna2Panel LeftPannel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.TextBox UserText;
     }
 }

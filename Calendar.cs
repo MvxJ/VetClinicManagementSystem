@@ -12,28 +12,21 @@ namespace VetClinicMS
 {
     public partial class Calendar : Form
     {
+        readonly WindowState windowState = new WindowState();
         public Calendar()
         {
             InitializeComponent();
+            UserText.Text = Global.UserBanner;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Pets petsForm = new Pets();
-            petsForm.Show();
-            this.Hide();
+            windowState.openPets(this);
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            DashBoard dashBoard = new DashBoard();
-            dashBoard.Show();
-            this.Hide();
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
+            windowState.openDashboard(this);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -43,23 +36,17 @@ namespace VetClinicMS
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            Medicines medicines = new Medicines();
-            medicines.Show();
-            this.Hide();
+            windowState.openMedicines(this);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            Wiki wiki = new Wiki();
-            wiki.Show();
-            this.Hide();
+            windowState.openWiki(this);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            UserAdministration administration = new UserAdministration();
-            administration.Show();
-            this.Hide();
+            windowState.openAdministration(this);
         }
 
         private void label3_Click(object sender, EventArgs e)

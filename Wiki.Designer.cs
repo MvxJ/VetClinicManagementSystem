@@ -46,6 +46,9 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.LogOutButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.UserText = new System.Windows.Forms.TextBox();
             this.LeftPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -54,6 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -308,12 +313,50 @@
             this.label3.Text = "-";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BorderRadius = 25;
+            this.guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2Panel1.Controls.Add(this.pictureBox6);
+            this.guna2Panel1.Controls.Add(this.UserText);
+            this.guna2Panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.guna2Panel1.FillColor = System.Drawing.Color.SeaGreen;
+            this.guna2Panel1.Location = new System.Drawing.Point(1077, 27);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(319, 56);
+            this.guna2Panel1.TabIndex = 25;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.SeaGreen;
+            this.pictureBox6.ErrorImage = null;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(61, 45);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 1;
+            this.pictureBox6.TabStop = false;
+            // 
+            // UserText
+            // 
+            this.UserText.BackColor = System.Drawing.Color.SeaGreen;
+            this.UserText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserText.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.UserText.ForeColor = System.Drawing.Color.White;
+            this.UserText.Location = new System.Drawing.Point(79, 19);
+            this.UserText.Name = "UserText";
+            this.UserText.Size = new System.Drawing.Size(145, 20);
+            this.UserText.TabIndex = 0;
+            this.UserText.Text = "Admin Admin";
+            // 
             // Wiki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 699);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LeftPannel);
@@ -330,6 +373,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,5 +400,8 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Bunifu.Framework.UI.BunifuThinButton2 LogOutButton;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox UserText;
     }
 }

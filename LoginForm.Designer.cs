@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.LoginButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.ResetLoginFormData = new Bunifu.Framework.UI.BunifuThinButton2();
             this.UsernameTextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,32 +37,35 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CloseLoginFormLabel = new System.Windows.Forms.Label();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bunifuThinButton21
+            // LoginButton
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Login";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(76, 344);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(200, 41);
-            this.bunifuThinButton21.TabIndex = 0;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LoginButton.ActiveBorderThickness = 1;
+            this.LoginButton.ActiveCornerRadius = 20;
+            this.LoginButton.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.LoginButton.ActiveForecolor = System.Drawing.Color.White;
+            this.LoginButton.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.LoginButton.BackColor = System.Drawing.Color.White;
+            this.LoginButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginButton.BackgroundImage")));
+            this.LoginButton.ButtonText = "Login";
+            this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginButton.IdleBorderThickness = 1;
+            this.LoginButton.IdleCornerRadius = 20;
+            this.LoginButton.IdleFillColor = System.Drawing.Color.White;
+            this.LoginButton.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.LoginButton.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.LoginButton.Location = new System.Drawing.Point(80, 302);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(5);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(200, 41);
+            this.LoginButton.TabIndex = 0;
+            this.LoginButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // ResetLoginFormData
             // 
@@ -82,7 +85,7 @@
             this.ResetLoginFormData.IdleFillColor = System.Drawing.Color.White;
             this.ResetLoginFormData.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.ResetLoginFormData.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.ResetLoginFormData.Location = new System.Drawing.Point(76, 395);
+            this.ResetLoginFormData.Location = new System.Drawing.Point(80, 353);
             this.ResetLoginFormData.Margin = new System.Windows.Forms.Padding(5);
             this.ResetLoginFormData.Name = "ResetLoginFormData";
             this.ResetLoginFormData.Size = new System.Drawing.Size(200, 41);
@@ -102,7 +105,7 @@
             this.UsernameTextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.UsernameTextbox.ForeColor = System.Drawing.Color.Black;
             this.UsernameTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UsernameTextbox.Location = new System.Drawing.Point(76, 190);
+            this.UsernameTextbox.Location = new System.Drawing.Point(80, 148);
             this.UsernameTextbox.Name = "UsernameTextbox";
             this.UsernameTextbox.PasswordChar = '\0';
             this.UsernameTextbox.PlaceholderText = "";
@@ -113,10 +116,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 9);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(18, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 25);
+            this.label1.Size = new System.Drawing.Size(333, 24);
             this.label1.TabIndex = 3;
             this.label1.Text = "Vet Clinic Management System";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -134,7 +138,7 @@
             this.PasswordTextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PasswordTextbox.ForeColor = System.Drawing.Color.Black;
             this.PasswordTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextbox.Location = new System.Drawing.Point(76, 260);
+            this.PasswordTextbox.Location = new System.Drawing.Point(80, 218);
             this.PasswordTextbox.Name = "PasswordTextbox";
             this.PasswordTextbox.PasswordChar = '*';
             this.PasswordTextbox.PlaceholderText = "";
@@ -146,7 +150,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 229);
+            this.label2.Location = new System.Drawing.Point(80, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 15);
             this.label2.TabIndex = 5;
@@ -156,7 +160,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(76, 299);
+            this.label3.Location = new System.Drawing.Point(80, 257);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 15);
             this.label3.TabIndex = 6;
@@ -166,12 +170,24 @@
             // 
             this.CloseLoginFormLabel.AutoSize = true;
             this.CloseLoginFormLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseLoginFormLabel.Location = new System.Drawing.Point(333, 9);
+            this.CloseLoginFormLabel.ForeColor = System.Drawing.Color.White;
+            this.CloseLoginFormLabel.Location = new System.Drawing.Point(344, 7);
             this.CloseLoginFormLabel.Name = "CloseLoginFormLabel";
             this.CloseLoginFormLabel.Size = new System.Drawing.Size(16, 18);
             this.CloseLoginFormLabel.TabIndex = 7;
             this.CloseLoginFormLabel.Text = "x";
             this.CloseLoginFormLabel.Click += new System.EventHandler(this.CloseLoginFormLabel_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.SeaGreen;
+            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Controls.Add(this.CloseLoginFormLabel);
+            this.guna2Panel1.Location = new System.Drawing.Point(-2, -3);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(363, 67);
+            this.guna2Panel1.TabIndex = 8;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // LoginForm
             // 
@@ -179,18 +195,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(361, 450);
-            this.Controls.Add(this.CloseLoginFormLabel);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PasswordTextbox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.UsernameTextbox);
             this.Controls.Add(this.ResetLoginFormData);
-            this.Controls.Add(this.bunifuThinButton21);
+            this.Controls.Add(this.LoginButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +215,7 @@
 
         #endregion
 
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        private Bunifu.Framework.UI.BunifuThinButton2 LoginButton;
         private Bunifu.Framework.UI.BunifuThinButton2 ResetLoginFormData;
         private Guna.UI2.WinForms.Guna2TextBox UsernameTextbox;
         private System.Windows.Forms.Label label1;
@@ -206,6 +223,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label CloseLoginFormLabel;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }
 

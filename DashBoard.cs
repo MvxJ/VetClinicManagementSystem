@@ -12,38 +12,22 @@ namespace VetClinicMS
 {
     public partial class DashBoard : Form
     {
+        readonly WindowState windowState = new WindowState();
+
         public DashBoard()
         {
             InitializeComponent();
+            UserText.Text = Global.UserBanner;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Calendar calendar = new Calendar();
-            calendar.Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LogOutButton_Click(object sender, EventArgs e)
-        {
-
+            windowState.openCalendar(this);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Pets pets = new Pets();
-            pets.Show();
-            this.Hide();
+            windowState.openPets(this); windowState.openAdministration(this);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -53,28 +37,28 @@ namespace VetClinicMS
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            Medicines medicines = new Medicines();
-            medicines.Show();
-            this.Hide();
+            windowState.openMedicines(this);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            Wiki wiki = new Wiki();
-            wiki.Show();
-            this.Hide();
+            windowState.openWiki(this);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            UserAdministration administration = new UserAdministration();
-            administration.Show();
-            this.Hide();
+            windowState.openAdministration(this);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.LogOut(this);
         }
     }
 }
