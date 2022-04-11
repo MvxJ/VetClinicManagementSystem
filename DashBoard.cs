@@ -18,6 +18,12 @@ namespace VetClinicMS
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
+            
+            if (Global.Usermode == 0)
+            {
+                this.guna2Button5.Hide();
+                this.pictureBox5.Hide();
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -27,7 +33,7 @@ namespace VetClinicMS
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            windowState.openPets(this); windowState.openAdministration(this);
+            windowState.openPets(this);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
