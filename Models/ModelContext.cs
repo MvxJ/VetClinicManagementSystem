@@ -12,5 +12,7 @@ namespace VetClinicMS.Models
         public ModelContext() : base("name=connection") { }
 
         public DbSet<PetsModel> PetList { get; set; }
+
+        public DbSet<UserModel> Users { get; set; }
     }
 }

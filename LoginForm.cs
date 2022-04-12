@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using VetClinicMS.Models;
 
 namespace VetClinicMS
 {
@@ -42,25 +43,27 @@ namespace VetClinicMS
                 MessageBox.Show("Informations missing!");
             } else {
                 try {
-                    SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maksymilian.jachymcz\Documents\VetClinicDB.mdf;Integrated Security=True");
-                    connection.Open();
-                    string query = "SELECT name, surname, mode FROM UsersTable WHERE username='" + UsernameTextbox.Text + "' AND password ='" + PasswordTextbox.Text +"'";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    var reader = command.ExecuteReader();
+                    using (var database = new ModelContext())
+                    {
+                        var user = database.Users.Where(u => u.username == UsernameTextbox.Text).First();
+                        if (user != null)
+                        {
+                            if (BCrypt.Net.BCrypt.Verify(PasswordTextbox.Text, user.password))
+                            {
+                                Global.Username = user.name;
+                                Global.Surname = user.surname;
+                                Global.Usermode = user.role;
+                                windowState.openDashboard(this);
+                            } else
+                            {
+                                MessageBox.Show("Wrong login data!");
+                            }
 
-                    if (reader.Read())
-                    {
-                        Global.Username = reader.GetString(0);
-                        Global.Surname = reader.GetString(1);
-                        Global.Usermode = reader.GetInt32(2);
-                        reader.Close();
-                        windowState.openDashboard(this);
-                    }
-                    else
-                    {
-                        reader.Close();
-                        MessageBox.Show("Wrong login data!");
-                        connection.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong login data!");
+                        }
                     }
                     
                 } catch (Exception exception) {
