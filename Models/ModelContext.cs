@@ -14,5 +14,7 @@ namespace VetClinicMS.Models
         public DbSet<PetsModel> PetList { get; set; }
 
         public DbSet<UserModel> Users { get; set; }
+
+        public DbSet<MedicineModel> Medicine { get; set; }
     }
 }

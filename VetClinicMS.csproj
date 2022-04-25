@@ -165,6 +165,15 @@
     <Reference Include="Guna.UI2, Version=2.0.3.2, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
     </Reference>
@@ -175,6 +184,8 @@
     <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -191,6 +202,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -200,6 +213,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendar.cs">
@@ -251,7 +267,16 @@
     <Compile Include="Migrations\202204121717467_update_user_entity.designer.cs">
       <DependentUpon>202204121717467_update_user_entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204251658098_creat_medicine.cs" />
+    <Compile Include="Migrations\202204251658098_creat_medicine.designer.cs">
+      <DependentUpon>202204251658098_creat_medicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204251701072_update_medicine.cs" />
+    <Compile Include="Migrations\202204251701072_update_medicine.designer.cs">
+      <DependentUpon>202204251701072_update_medicine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\MedicineModel.cs" />
     <Compile Include="Models\ModelContext.cs" />
     <Compile Include="Models\PetsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -266,6 +291,12 @@
     </Compile>
     <Compile Include="UserControlls\AdministrationUserControl.Designer.cs">
       <DependentUpon>AdministrationUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\MedicinControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\MedicinControl.Designer.cs">
+      <DependentUpon>MedicinControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlls\PetsControl.cs">
       <SubType>UserControl</SubType>
@@ -330,11 +361,20 @@
     <EmbeddedResource Include="Migrations\202204121717467_update_user_entity.resx">
       <DependentUpon>202204121717467_update_user_entity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204251658098_creat_medicine.resx">
+      <DependentUpon>202204251658098_creat_medicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204251701072_update_medicine.resx">
+      <DependentUpon>202204251701072_update_medicine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pets.resx">
       <DependentUpon>Pets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\AdministrationUserControl.resx">
       <DependentUpon>AdministrationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlls\MedicinControl.resx">
+      <DependentUpon>MedicinControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\PetsControl.resx">
       <DependentUpon>PetsControl.cs</DependentUpon>
@@ -387,7 +427,6 @@
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MetroFramework.txt" />
     <None Include="Resources\doctor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -401,6 +440,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medicine.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

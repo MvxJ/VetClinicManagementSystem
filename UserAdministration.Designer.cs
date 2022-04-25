@@ -385,7 +385,7 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(568, 108);
+            this.guna2TextBox1.Location = new System.Drawing.Point(570, 108);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "Search filter";
@@ -402,7 +402,7 @@
             this.Search.FillColor = System.Drawing.Color.MediumSeaGreen;
             this.Search.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Search.ForeColor = System.Drawing.Color.White;
-            this.Search.Location = new System.Drawing.Point(413, 108);
+            this.Search.Location = new System.Drawing.Point(415, 108);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(149, 45);
             this.Search.TabIndex = 29;
@@ -418,7 +418,7 @@
             this.Refresh.FillColor = System.Drawing.Color.MediumSeaGreen;
             this.Refresh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Refresh.ForeColor = System.Drawing.Color.White;
-            this.Refresh.Location = new System.Drawing.Point(258, 108);
+            this.Refresh.Location = new System.Drawing.Point(260, 108);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(149, 45);
             this.Refresh.TabIndex = 28;
@@ -671,7 +671,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Location = new System.Drawing.Point(258, 164);
+            this.panel1.Location = new System.Drawing.Point(260, 164);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(15);
             this.panel1.Size = new System.Drawing.Size(664, 523);
