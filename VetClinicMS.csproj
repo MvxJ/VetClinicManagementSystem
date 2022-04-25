@@ -218,29 +218,29 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendar.cs">
+    <Compile Include="Forms\Calendar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calendar.Designer.cs">
+    <Compile Include="Forms\Calendar.Designer.cs">
       <DependentUpon>Calendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="DashBoard.cs">
+    <Compile Include="Forms\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashBoard.Designer.cs">
+    <Compile Include="Forms\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Medicines.cs">
+    <Compile Include="Forms\Medicines.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Medicines.Designer.cs">
+    <Compile Include="Forms\Medicines.Designer.cs">
       <DependentUpon>Medicines.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202204101616076_pets.cs" />
@@ -280,10 +280,10 @@
     <Compile Include="Models\ModelContext.cs" />
     <Compile Include="Models\PetsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Pets.cs">
+    <Compile Include="Forms\Pets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pets.Designer.cs">
+    <Compile Include="Forms\Pets.Designer.cs">
       <DependentUpon>Pets.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlls\AdministrationUserControl.cs">
@@ -306,17 +306,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Splash.cs">
+    <Compile Include="Forms\Splash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Splash.Designer.cs">
+    <Compile Include="Forms\Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <Compile Include="UserAdministration.cs">
+    <Compile Include="Forms\UserAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserAdministration.Designer.cs">
+    <Compile Include="Forms\UserAdministration.Designer.cs">
       <DependentUpon>UserAdministration.cs</DependentUpon>
     </Compile>
     <Compile Include="VetClinicDBDataSet.Designer.cs">
@@ -324,23 +324,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VetClinicDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Wiki.cs">
+    <Compile Include="Forms\Wiki.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wiki.Designer.cs">
+    <Compile Include="Forms\Wiki.Designer.cs">
       <DependentUpon>Wiki.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowState.cs" />
-    <EmbeddedResource Include="Calendar.resx">
+    <EmbeddedResource Include="Forms\Calendar.resx">
       <DependentUpon>Calendar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DashBoard.resx">
+    <EmbeddedResource Include="Forms\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Medicines.resx">
+    <EmbeddedResource Include="Forms\Medicines.resx">
       <DependentUpon>Medicines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204101616076_pets.resx">
@@ -367,7 +367,7 @@
     <EmbeddedResource Include="Migrations\202204251701072_update_medicine.resx">
       <DependentUpon>202204251701072_update_medicine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pets.resx">
+    <EmbeddedResource Include="Forms\Pets.resx">
       <DependentUpon>Pets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\AdministrationUserControl.resx">
@@ -389,13 +389,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Splash.resx">
+    <EmbeddedResource Include="Forms\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserAdministration.resx">
+    <EmbeddedResource Include="Forms\UserAdministration.resx">
       <DependentUpon>UserAdministration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wiki.resx">
+    <EmbeddedResource Include="Forms\Wiki.resx">
       <DependentUpon>Wiki.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
