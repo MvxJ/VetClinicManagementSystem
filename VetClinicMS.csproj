@@ -275,7 +275,12 @@
     <Compile Include="Migrations\202204251701072_update_medicine.designer.cs">
       <DependentUpon>202204251701072_update_medicine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204262001365_create_article_model.cs" />
+    <Compile Include="Migrations\202204262001365_create_article_model.designer.cs">
+      <DependentUpon>202204262001365_create_article_model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\MedicineModel.cs" />
     <Compile Include="Models\ModelContext.cs" />
     <Compile Include="Models\PetsModel.cs" />
@@ -291,6 +296,12 @@
     </Compile>
     <Compile Include="UserControlls\AdministrationUserControl.Designer.cs">
       <DependentUpon>AdministrationUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\ArticleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\ArticleControl.Designer.cs">
+      <DependentUpon>ArticleControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlls\MedicinControl.cs">
       <SubType>UserControl</SubType>
@@ -370,8 +381,14 @@
     <EmbeddedResource Include="Forms\Pets.resx">
       <DependentUpon>Pets.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204262001365_create_article_model.resx">
+      <DependentUpon>202204262001365_create_article_model.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\AdministrationUserControl.resx">
       <DependentUpon>AdministrationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlls\ArticleControl.resx">
+      <DependentUpon>ArticleControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\MedicinControl.resx">
       <DependentUpon>MedicinControl.cs</DependentUpon>
@@ -424,7 +441,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <None Include="Resources\newspaper.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\doctor.png" />

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using VetClinicMS.Models;
 
 namespace VetClinicMS
 {
@@ -23,6 +25,42 @@ namespace VetClinicMS
             {
                 this.guna2Button5.Hide();
                 this.pictureBox5.Hide();
+            }
+
+            this.addSeriesToChart();
+            this.countUsers();
+        }
+
+        private void countUsers()
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                var users = database.Users.ToList();
+                usersAmount.Text = users.Count.ToString();
+            }
+        }
+
+        private void addSeriesToChart()
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                Dictionary<string, int> pets = new Dictionary<string, int>();
+                var petsList = database.PetList.ToList();
+                petsList.ForEach(pet => {
+                    if (pets.ContainsKey(pet.pet))
+                    {
+                        pets[pet.pet]++;
+                    } else
+                    {
+                        pets.Add(pet.pet, 1);
+                    }
+                });
+
+
+                foreach (KeyValuePair<string, int> row in pets)
+                {
+                    petsChart.Series["performace"].Points.AddXY(row.Key, row.Value);
+                }
             }
         }
 
