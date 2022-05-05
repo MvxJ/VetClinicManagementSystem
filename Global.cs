@@ -14,6 +14,8 @@ namespace VetClinicMS
 
         private static int _Usermode = 0;
 
+        private static int _UserId;
+
         public static string Username
         {
             get { return _Username; }
@@ -35,6 +37,12 @@ namespace VetClinicMS
         public static string UserBanner
         {
             get { return _Username + " " + _Surname; }
+        }
+
+        public static int UserId
+        {
+            get { return _UserId; }
+            set { _UserId = value; }
         }
     }
 }

@@ -31,6 +31,7 @@ namespace VetClinicMS
             this.countUsers();
             this.countArticles();
             this.countMeds();
+            this.countVisits();
         }
 
         private void countUsers()
@@ -62,7 +63,11 @@ namespace VetClinicMS
 
         private void countVisits()
         {
-
+            using (ModelContext database = new ModelContext())
+            {
+                var visits = database.Events.ToList();
+                visitsAmount.Text = visits.Count.ToString();
+            }
         }
 
         private void addSeriesToChart()
@@ -82,9 +87,29 @@ namespace VetClinicMS
                 });
 
 
+                petsChart.Series["performace"].Points.Clear();
+
                 foreach (KeyValuePair<string, int> row in pets)
                 {
                     petsChart.Series["performace"].Points.AddXY(row.Key, row.Value);
+                }
+
+                Dictionary<string, int> events = new Dictionary<string, int>();
+                var eventsList = database.Events.ToList();
+
+                eventsList.ForEach(e => {
+                    if (events.ContainsKey(e.from.ToString("dd.MM.yyyy"))) {
+                        events[e.from.ToString("dd.MM.yyyy")]++;
+                    } else {
+                        events.Add(e.from.ToString("dd.MM.yyyy"), 1);
+                    }
+                });
+
+                visitsChart.Series["visits"].Points.Clear();
+
+                foreach (KeyValuePair<string, int> row in events)
+                {
+                    visitsChart.Series["visits"].Points.AddXY(row.Key, row.Value);
                 }
             }
         }
@@ -128,6 +153,15 @@ namespace VetClinicMS
         {
             User user = new User();
             user.LogOut(this);
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            this.addSeriesToChart();
+            this.countUsers();
+            this.countArticles();
+            this.countMeds();
+            this.countVisits();
         }
     }
 }

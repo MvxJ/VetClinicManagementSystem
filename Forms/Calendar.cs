@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ServiceStack.Script;
+using System;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
 using VetClinicMS.Models;
@@ -13,18 +15,36 @@ namespace VetClinicMS
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
-            this.onLoad();
+            this.onLoad(null);
         }
 
-        private void onLoad()
+        private void onLoad(string date)
         {
-            string date = calendarDate.ToString();
+            eventsPanel.Controls.Clear();
 
             using (ModelContext database = new ModelContext())
             {
                 var doctors = database.Users.Where(u => u.role == 2).ToList();
                 var pets = database.PetList.ToList();
-                var events = database.Events.ToList();
+
+                var events = database.Events.OrderBy(e => e.from).ToList();
+
+                if (Global.Usermode == 2) {
+                    events = events.Where(e => e.doctorId == Global.UserId).ToList();
+                }
+
+                if (date != null)
+                {
+                    var today = DateTime.ParseExact(date, "dd.MM.yyyy", null);
+                    var tomorrow = DateTime.ParseExact(date, "dd.MM.yyyy", null).AddDays(1);
+                    events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
+                } else
+                {
+                    var today = DateTime.Now.Date;
+                    var tomorrow = today.AddDays(1).Date;
+
+                    events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
+                }
 
                 doctorCombo.DataSource = doctors;
                 doctorCombo.ValueMember = "id";
@@ -36,6 +56,7 @@ namespace VetClinicMS
 
                 events.ForEach(single => {
                     EventControl eventControl = new EventControl();
+                    eventControl.Id = single.id;
                     eventControl.Title = single.title;
                     eventControl.Description = single.description;
                     eventControl.FromDate = single.from;
@@ -60,8 +81,8 @@ namespace VetClinicMS
             eventDescription.Text = singleEvent.Description;
             phoneValue.Text = singleEvent.Phone;
             emailValue.Text = singleEvent.Email;
-            doctorCombo.SelectedItem = singleEvent.DoctorId;
-            petsCombo.SelectedItem = singleEvent.PetId;
+            doctorCombo.SelectedValue = singleEvent.DoctorId;
+            petsCombo.SelectedValue = singleEvent.PetId;
             fromValue.Text = singleEvent.FromDate.ToString();
             toValue.Text = singleEvent.ToDate.ToString();
         }
@@ -108,8 +129,8 @@ namespace VetClinicMS
             eventDescription.Text = "";
             phoneValue.Text = "";
             emailValue.Text = "";
-            doctorCombo.SelectedItem = 0;
-            petsCombo.SelectedItem = 0;
+            doctorCombo.SelectedValue = 0;
+            petsCombo.SelectedValue = 0;
             fromValue.Text = "";
             toValue.Text = "";
         }
@@ -126,8 +147,8 @@ namespace VetClinicMS
                         description = eventDescription.Text,
                         email = emailValue.Text,
                         phone = phoneValue.Text,
-                        petId = petsCombo.SelectedIndex,
-                        doctorId = doctorCombo.SelectedIndex,
+                        petId = Int32.Parse(petsCombo.SelectedValue.ToString()),
+                        doctorId = Int32.Parse(doctorCombo.SelectedValue.ToString()),
                         from = DateTime.Parse(fromValue.Text),
                         to = DateTime.Parse(toValue.Text)
                     };
@@ -147,14 +168,19 @@ namespace VetClinicMS
                     singleEvent.description = eventDescription.Text;
                     singleEvent.email = emailValue.Text;
                     singleEvent.phone = phoneValue.Text;
-                    singleEvent.doctorId = Int32.Parse(doctorCombo.Text);
-                    singleEvent.petId = Int32.Parse(petsCombo.Text);
+                    singleEvent.doctorId = Int32.Parse(doctorCombo.SelectedValue.ToString());
+                    singleEvent.petId = Int32.Parse(petsCombo.SelectedValue.ToString());
                     singleEvent.from = DateTime.Parse(fromValue.Text);
                     singleEvent.to = DateTime.Parse(toValue.Text);
 
                     database.SaveChanges();
                 }
             }
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            this.onLoad(dateTime.Value.ToString("dd.MM.yyyy"));
         }
     }
 }

@@ -50,7 +50,6 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.UserText = new System.Windows.Forms.TextBox();
             this.eventsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.calendarDate = new System.Windows.Forms.MonthCalendar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.singleEventId = new System.Windows.Forms.Label();
@@ -74,6 +73,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.Refresh = new Guna.UI2.WinForms.Guna2Button();
             this.LeftPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -388,19 +389,13 @@
             this.eventsPanel.Size = new System.Drawing.Size(664, 523);
             this.eventsPanel.TabIndex = 32;
             // 
-            // calendarDate
-            // 
-            this.calendarDate.Location = new System.Drawing.Point(86, 10);
-            this.calendarDate.Name = "calendarDate";
-            this.calendarDate.TabIndex = 33;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.calendarDate);
+            this.panel1.Controls.Add(this.dateTime);
             this.panel1.Location = new System.Drawing.Point(936, 191);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 181);
+            this.panel1.Size = new System.Drawing.Size(405, 41);
             this.panel1.TabIndex = 34;
             // 
             // panel2
@@ -425,7 +420,7 @@
             this.panel2.Controls.Add(this.Save);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(936, 414);
+            this.panel2.Location = new System.Drawing.Point(936, 272);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(405, 273);
             this.panel2.TabIndex = 35;
@@ -559,7 +554,7 @@
             // 
             // toValue
             // 
-            this.toValue.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.toValue.CustomFormat = "dd.MM.yyyy hh:mm:ss";
             this.toValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.toValue.Location = new System.Drawing.Point(15, 167);
             this.toValue.Name = "toValue";
@@ -578,7 +573,7 @@
             // 
             // fromValue
             // 
-            this.fromValue.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.fromValue.CustomFormat = "dd.MM.yyyy hh:mm:ss";
             this.fromValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fromValue.Location = new System.Drawing.Point(15, 118);
             this.fromValue.Name = "fromValue";
@@ -662,7 +657,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(932, 390);
+            this.label6.Location = new System.Drawing.Point(932, 248);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 21);
             this.label6.TabIndex = 28;
@@ -680,12 +675,40 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "Browse events by date";
             // 
+            // dateTime
+            // 
+            this.dateTime.CustomFormat = "dd.MM.yyyy hh:mm:ss";
+            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTime.Location = new System.Drawing.Point(9, 12);
+            this.dateTime.Name = "dateTime";
+            this.dateTime.ShowUpDown = true;
+            this.dateTime.Size = new System.Drawing.Size(383, 20);
+            this.dateTime.TabIndex = 72;
+            this.dateTime.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            // 
+            // Refresh
+            // 
+            this.Refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Refresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Refresh.FillColor = System.Drawing.Color.MediumSeaGreen;
+            this.Refresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Refresh.ForeColor = System.Drawing.Color.White;
+            this.Refresh.Location = new System.Drawing.Point(260, 108);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(149, 45);
+            this.Refresh.TabIndex = 37;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
             // Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 699);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
@@ -742,7 +765,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox UserText;
         private System.Windows.Forms.FlowLayoutPanel eventsPanel;
-        private System.Windows.Forms.MonthCalendar calendarDate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
@@ -766,5 +788,7 @@
         private Guna.UI2.WinForms.Guna2TextBox emailValue;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label singleEventId;
+        private System.Windows.Forms.DateTimePicker dateTime;
+        private Guna.UI2.WinForms.Guna2Button Refresh;
     }
 }

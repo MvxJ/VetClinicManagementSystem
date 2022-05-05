@@ -53,6 +53,7 @@ namespace VetClinicMS
                                 Global.Username = user.name;
                                 Global.Surname = user.surname;
                                 Global.Usermode = user.role;
+                                Global.UserId = user.id;
                                 windowState.openDashboard(this);
                             } else
                             {
