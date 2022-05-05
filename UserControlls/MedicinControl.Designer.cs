@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.textMedicine = new System.Windows.Forms.Label();
-            this.AddToList = new Guna.UI2.WinForms.Guna2Button();
             this.textCategory = new System.Windows.Forms.Label();
             this.textStock = new System.Windows.Forms.Label();
             this.textDescription = new System.Windows.Forms.Label();
@@ -48,21 +47,6 @@
             this.textMedicine.Size = new System.Drawing.Size(50, 13);
             this.textMedicine.TabIndex = 24;
             this.textMedicine.Text = "Medicine";
-            // 
-            // AddToList
-            // 
-            this.AddToList.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.AddToList.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.AddToList.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AddToList.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.AddToList.FillColor = System.Drawing.Color.MediumSeaGreen;
-            this.AddToList.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddToList.ForeColor = System.Drawing.Color.White;
-            this.AddToList.Location = new System.Drawing.Point(523, 13);
-            this.AddToList.Name = "AddToList";
-            this.AddToList.Size = new System.Drawing.Size(88, 23);
-            this.AddToList.TabIndex = 18;
-            this.AddToList.Text = "Add to list";
             // 
             // textCategory
             // 
@@ -100,7 +84,7 @@
             this.Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Delete.ForeColor = System.Drawing.Color.White;
-            this.Delete.Location = new System.Drawing.Point(523, 54);
+            this.Delete.Location = new System.Drawing.Point(523, 13);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(88, 23);
             this.Delete.TabIndex = 28;
@@ -147,7 +131,6 @@
             this.Controls.Add(this.textStock);
             this.Controls.Add(this.textCategory);
             this.Controls.Add(this.textMedicine);
-            this.Controls.Add(this.AddToList);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MedicinControl";
             this.Size = new System.Drawing.Size(625, 90);
@@ -160,7 +143,6 @@
         #endregion
 
         private System.Windows.Forms.Label textMedicine;
-        private Guna.UI2.WinForms.Guna2Button AddToList;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label textCategory;
         private System.Windows.Forms.Label textStock;

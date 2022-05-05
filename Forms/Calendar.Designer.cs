@@ -49,6 +49,31 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.UserText = new System.Windows.Forms.TextBox();
+            this.eventsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.calendarDate = new System.Windows.Forms.MonthCalendar();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.singleEventId = new System.Windows.Forms.Label();
+            this.emailValue = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.phoneValue = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.petsCombo = new System.Windows.Forms.ComboBox();
+            this.doctorCombo = new System.Windows.Forms.ComboBox();
+            this.eventDescription = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.toValue = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.fromValue = new System.Windows.Forms.DateTimePicker();
+            this.eventName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CancelModification = new Guna.UI2.WinForms.Guna2Button();
+            this.Save = new Guna.UI2.WinForms.Guna2Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.LeftPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -59,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Button1
@@ -351,12 +378,319 @@
             this.UserText.TabIndex = 0;
             this.UserText.Text = "Admin Admin";
             // 
+            // eventsPanel
+            // 
+            this.eventsPanel.AutoScroll = true;
+            this.eventsPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.eventsPanel.Location = new System.Drawing.Point(260, 164);
+            this.eventsPanel.Name = "eventsPanel";
+            this.eventsPanel.Padding = new System.Windows.Forms.Padding(15);
+            this.eventsPanel.Size = new System.Drawing.Size(664, 523);
+            this.eventsPanel.TabIndex = 32;
+            // 
+            // calendarDate
+            // 
+            this.calendarDate.Location = new System.Drawing.Point(86, 10);
+            this.calendarDate.Name = "calendarDate";
+            this.calendarDate.TabIndex = 33;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.calendarDate);
+            this.panel1.Location = new System.Drawing.Point(936, 191);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(405, 181);
+            this.panel1.TabIndex = 34;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.singleEventId);
+            this.panel2.Controls.Add(this.emailValue);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.phoneValue);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.petsCombo);
+            this.panel2.Controls.Add(this.doctorCombo);
+            this.panel2.Controls.Add(this.eventDescription);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.toValue);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.fromValue);
+            this.panel2.Controls.Add(this.eventName);
+            this.panel2.Controls.Add(this.CancelModification);
+            this.panel2.Controls.Add(this.Save);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Location = new System.Drawing.Point(936, 414);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(405, 273);
+            this.panel2.TabIndex = 35;
+            // 
+            // singleEventId
+            // 
+            this.singleEventId.AutoSize = true;
+            this.singleEventId.Location = new System.Drawing.Point(361, 8);
+            this.singleEventId.Name = "singleEventId";
+            this.singleEventId.Size = new System.Drawing.Size(0, 13);
+            this.singleEventId.TabIndex = 71;
+            this.singleEventId.Visible = false;
+            // 
+            // emailValue
+            // 
+            this.emailValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.emailValue.DefaultText = "";
+            this.emailValue.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.emailValue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.emailValue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.emailValue.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.emailValue.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.emailValue.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.emailValue.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.emailValue.Location = new System.Drawing.Point(206, 210);
+            this.emailValue.Name = "emailValue";
+            this.emailValue.PasswordChar = '\0';
+            this.emailValue.PlaceholderText = "";
+            this.emailValue.SelectedText = "";
+            this.emailValue.Size = new System.Drawing.Size(172, 21);
+            this.emailValue.TabIndex = 69;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(205, 194);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(32, 13);
+            this.label13.TabIndex = 70;
+            this.label13.Text = "Email";
+            // 
+            // phoneValue
+            // 
+            this.phoneValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.phoneValue.DefaultText = "";
+            this.phoneValue.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.phoneValue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.phoneValue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.phoneValue.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.phoneValue.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.phoneValue.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.phoneValue.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.phoneValue.Location = new System.Drawing.Point(15, 210);
+            this.phoneValue.Name = "phoneValue";
+            this.phoneValue.PasswordChar = '\0';
+            this.phoneValue.PlaceholderText = "";
+            this.phoneValue.SelectedText = "";
+            this.phoneValue.Size = new System.Drawing.Size(172, 21);
+            this.phoneValue.TabIndex = 67;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(14, 194);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 13);
+            this.label12.TabIndex = 68;
+            this.label12.Text = "Phone";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(203, 150);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(23, 13);
+            this.label11.TabIndex = 66;
+            this.label11.Text = "Pet";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(203, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 65;
+            this.label8.Text = "Doctor";
+            // 
+            // petsCombo
+            // 
+            this.petsCombo.FormattingEnabled = true;
+            this.petsCombo.Location = new System.Drawing.Point(206, 166);
+            this.petsCombo.Name = "petsCombo";
+            this.petsCombo.Size = new System.Drawing.Size(186, 21);
+            this.petsCombo.TabIndex = 64;
+            // 
+            // doctorCombo
+            // 
+            this.doctorCombo.FormattingEnabled = true;
+            this.doctorCombo.Location = new System.Drawing.Point(206, 117);
+            this.doctorCombo.Name = "doctorCombo";
+            this.doctorCombo.Size = new System.Drawing.Size(186, 21);
+            this.doctorCombo.TabIndex = 63;
+            // 
+            // eventDescription
+            // 
+            this.eventDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.eventDescription.DefaultText = "";
+            this.eventDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.eventDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.eventDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.eventDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.eventDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.eventDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.eventDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.eventDescription.Location = new System.Drawing.Point(15, 71);
+            this.eventDescription.Name = "eventDescription";
+            this.eventDescription.PasswordChar = '\0';
+            this.eventDescription.PlaceholderText = "";
+            this.eventDescription.SelectedText = "";
+            this.eventDescription.Size = new System.Drawing.Size(377, 21);
+            this.eventDescription.TabIndex = 61;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Description";
+            // 
+            // toValue
+            // 
+            this.toValue.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.toValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.toValue.Location = new System.Drawing.Point(15, 167);
+            this.toValue.Name = "toValue";
+            this.toValue.ShowUpDown = true;
+            this.toValue.Size = new System.Drawing.Size(174, 20);
+            this.toValue.TabIndex = 60;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 150);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 13);
+            this.label10.TabIndex = 59;
+            this.label10.Text = "To";
+            // 
+            // fromValue
+            // 
+            this.fromValue.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.fromValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fromValue.Location = new System.Drawing.Point(15, 118);
+            this.fromValue.Name = "fromValue";
+            this.fromValue.ShowUpDown = true;
+            this.fromValue.Size = new System.Drawing.Size(174, 20);
+            this.fromValue.TabIndex = 58;
+            this.fromValue.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            // 
+            // eventName
+            // 
+            this.eventName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.eventName.DefaultText = "";
+            this.eventName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.eventName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.eventName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.eventName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.eventName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.eventName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.eventName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.eventName.Location = new System.Drawing.Point(15, 27);
+            this.eventName.Name = "eventName";
+            this.eventName.PasswordChar = '\0';
+            this.eventName.PlaceholderText = "";
+            this.eventName.SelectedText = "";
+            this.eventName.Size = new System.Drawing.Size(377, 21);
+            this.eventName.TabIndex = 47;
+            // 
+            // CancelModification
+            // 
+            this.CancelModification.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CancelModification.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CancelModification.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CancelModification.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CancelModification.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.CancelModification.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CancelModification.ForeColor = System.Drawing.Color.White;
+            this.CancelModification.Location = new System.Drawing.Point(101, 243);
+            this.CancelModification.Name = "CancelModification";
+            this.CancelModification.Size = new System.Drawing.Size(88, 23);
+            this.CancelModification.TabIndex = 45;
+            this.CancelModification.Text = "Cancel";
+            this.CancelModification.Click += new System.EventHandler(this.CancelModification_Click);
+            // 
+            // Save
+            // 
+            this.Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Save.FillColor = System.Drawing.Color.MediumSeaGreen;
+            this.Save.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Save.ForeColor = System.Drawing.Color.White;
+            this.Save.Location = new System.Drawing.Point(206, 243);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(88, 23);
+            this.Save.TabIndex = 46;
+            this.Save.Text = "Save";
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "From";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 50;
+            this.label9.Text = "Event";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(932, 390);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 21);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Event details";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(932, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(187, 21);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Browse events by date";
+            // 
             // Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 699);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.eventsPanel);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -377,6 +711,9 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +741,30 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox UserText;
+        private System.Windows.Forms.FlowLayoutPanel eventsPanel;
+        private System.Windows.Forms.MonthCalendar calendarDate;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2TextBox phoneValue;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox petsCombo;
+        private System.Windows.Forms.ComboBox doctorCombo;
+        private Guna.UI2.WinForms.Guna2TextBox eventDescription;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker toValue;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker fromValue;
+        private Guna.UI2.WinForms.Guna2TextBox eventName;
+        private Guna.UI2.WinForms.Guna2Button CancelModification;
+        private Guna.UI2.WinForms.Guna2Button Save;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2TextBox emailValue;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label singleEventId;
     }
 }

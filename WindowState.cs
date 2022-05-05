@@ -22,7 +22,7 @@ namespace VetClinicMS
             calendar.Show();
             form.Hide();
         }
-
+        
         public void openPets(Form form)
         {
             Pets pets = new Pets();

@@ -55,6 +55,7 @@
             this.searchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Available = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.medId = new System.Windows.Forms.Label();
             this.userId = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.price = new Guna.UI2.WinForms.Guna2TextBox();
@@ -69,9 +70,6 @@
             this.name = new Guna.UI2.WinForms.Guna2TextBox();
             this.Save = new Guna.UI2.WinForms.Guna2Button();
             this.CancelModification = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.List = new System.Windows.Forms.Label();
-            this.medId = new System.Windows.Forms.Label();
             this.LeftPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -476,6 +474,15 @@
             this.panel2.Size = new System.Drawing.Size(407, 214);
             this.panel2.TabIndex = 35;
             // 
+            // medId
+            // 
+            this.medId.AutoSize = true;
+            this.medId.Location = new System.Drawing.Point(369, 4);
+            this.medId.Name = "medId";
+            this.medId.Size = new System.Drawing.Size(0, 13);
+            this.medId.TabIndex = 44;
+            this.medId.Visible = false;
+            // 
             // userId
             // 
             this.userId.AutoSize = true;
@@ -666,49 +673,12 @@
             this.CancelModification.Text = "Cancel";
             this.CancelModification.Click += new System.EventHandler(this.CancelModification_Click);
             // 
-            // guna2Button6
-            // 
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.FillColor = System.Drawing.Color.MediumSeaGreen;
-            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.Location = new System.Drawing.Point(1064, 642);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(149, 45);
-            this.guna2Button6.TabIndex = 36;
-            this.guna2Button6.Text = "Print bill";
-            // 
-            // List
-            // 
-            this.List.AutoSize = true;
-            this.List.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.List.ForeColor = System.Drawing.Color.Black;
-            this.List.Location = new System.Drawing.Point(930, 392);
-            this.List.Name = "List";
-            this.List.Size = new System.Drawing.Size(38, 24);
-            this.List.TabIndex = 37;
-            this.List.Text = "List";
-            // 
-            // medId
-            // 
-            this.medId.AutoSize = true;
-            this.medId.Location = new System.Drawing.Point(369, 4);
-            this.medId.Name = "medId";
-            this.medId.Size = new System.Drawing.Size(0, 13);
-            this.medId.TabIndex = 44;
-            this.medId.Visible = false;
-            // 
             // Medicines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 699);
-            this.Controls.Add(this.List);
-            this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.Available);
@@ -785,8 +755,6 @@
         private Guna.UI2.WinForms.Guna2TextBox name;
         private Guna.UI2.WinForms.Guna2Button Save;
         private Guna.UI2.WinForms.Guna2Button CancelModification;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private System.Windows.Forms.Label List;
         private System.Windows.Forms.Label medId;
     }
 }

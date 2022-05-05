@@ -29,6 +29,8 @@ namespace VetClinicMS
 
             this.addSeriesToChart();
             this.countUsers();
+            this.countArticles();
+            this.countMeds();
         }
 
         private void countUsers()
@@ -38,6 +40,29 @@ namespace VetClinicMS
                 var users = database.Users.ToList();
                 usersAmount.Text = users.Count.ToString();
             }
+        }
+
+        private void countArticles()
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                var articles = database.Articles.ToList();
+                articlesAmount.Text = articles.Count.ToString();
+            }
+        }
+
+        private void countMeds()
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                var meds = database.Medicine.ToList();
+                medsAmount.Text = meds.Count.ToString();
+            }
+        }
+
+        private void countVisits()
+        {
+
         }
 
         private void addSeriesToChart()
