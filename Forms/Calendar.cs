@@ -15,6 +15,8 @@ namespace VetClinicMS
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
+
+
             this.onLoad(null);
         }
 
@@ -89,12 +91,12 @@ namespace VetClinicMS
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            windowState.openPets(this);
+            windowState.OpenPets(this);
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            windowState.openDashboard(this);
+            windowState.OpenDashBoard(this);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -104,22 +106,22 @@ namespace VetClinicMS
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            windowState.openMedicines(this);
+            windowState.OpenMedicines(this);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            windowState.openWiki(this);
+            windowState.OpenWiki(this);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            windowState.openAdministration(this);
+            windowState.OpenUserAdministration(this);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            windowState.Minimalize(this);
         }
 
         private void CancelModification_Click(object sender, EventArgs e)
@@ -181,6 +183,12 @@ namespace VetClinicMS
         private void Refresh_Click(object sender, EventArgs e)
         {
             this.onLoad(dateTime.Value.ToString("dd.MM.yyyy"));
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            UserService user = new UserService();
+            user.LogOut(this);
         }
     }
 }

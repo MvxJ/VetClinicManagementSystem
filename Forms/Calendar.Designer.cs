@@ -51,6 +51,7 @@
             this.UserText = new System.Windows.Forms.TextBox();
             this.eventsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.singleEventId = new System.Windows.Forms.Label();
             this.emailValue = new Guna.UI2.WinForms.Guna2TextBox();
@@ -73,7 +74,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.Refresh = new Guna.UI2.WinForms.Guna2Button();
             this.LeftPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -317,6 +317,7 @@
             this.LogOutButton.Size = new System.Drawing.Size(181, 41);
             this.LogOutButton.TabIndex = 0;
             this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // label2
             // 
@@ -397,6 +398,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(405, 41);
             this.panel1.TabIndex = 34;
+            // 
+            // dateTime
+            // 
+            this.dateTime.CustomFormat = "dd.MM.yyyy hh:mm:ss";
+            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTime.Location = new System.Drawing.Point(9, 12);
+            this.dateTime.Name = "dateTime";
+            this.dateTime.ShowUpDown = true;
+            this.dateTime.Size = new System.Drawing.Size(383, 20);
+            this.dateTime.TabIndex = 72;
+            this.dateTime.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
             // panel2
             // 
@@ -674,17 +686,6 @@
             this.label4.Size = new System.Drawing.Size(187, 21);
             this.label4.TabIndex = 36;
             this.label4.Text = "Browse events by date";
-            // 
-            // dateTime
-            // 
-            this.dateTime.CustomFormat = "dd.MM.yyyy hh:mm:ss";
-            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTime.Location = new System.Drawing.Point(9, 12);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.ShowUpDown = true;
-            this.dateTime.Size = new System.Drawing.Size(383, 20);
-            this.dateTime.TabIndex = 72;
-            this.dateTime.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
             // Refresh
             // 

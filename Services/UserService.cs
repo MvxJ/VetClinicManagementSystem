@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace VetClinicMS
 {
-    public class User
+    public class UserService
     {
         public void LogOut(Form form)
         {
@@ -17,6 +17,16 @@ namespace VetClinicMS
             LoginForm login = new LoginForm();
             login.Show();
             form.Hide();
+        }
+
+        public bool checkUserAccess()
+        {
+            if (Global.Usermode != 1)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -14,22 +14,30 @@ namespace VetClinicMS
 {
     public partial class Pets : Form
     {
+        UserService userService = new UserService();
         WindowState windowState = new WindowState();
         public Pets()
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
+
+            if (!userService.checkUserAccess())
+            {
+                this.guna2Button5.Hide();
+                this.pictureBox5.Hide();
+            }
+
             this.LoadUserControls();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            windowState.openDashboard(this);
+            windowState.OpenDashBoard(this);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            windowState.openCalendar(this);
+            windowState.OpenCalendar(this);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -39,22 +47,22 @@ namespace VetClinicMS
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            windowState.openMedicines(this);
+            windowState.OpenMedicines(this);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            windowState.openWiki(this);
+            windowState.OpenWiki(this);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            windowState.openAdministration(this);
+            windowState.OpenUserAdministration(this);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            windowState.Minimalize(this);
         }
 
         private void PetsControl_Click(object sender, EventArgs e)
@@ -186,6 +194,11 @@ namespace VetClinicMS
                     database.SaveChanges();
                 }
             }
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            windowState.LogOut(this);
         }
 
         private void CancelModification_Click(object sender, EventArgs e)

@@ -351,6 +351,7 @@
     <Compile Include="Forms\Medicines.Designer.cs">
       <DependentUpon>Medicines.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IWindowState.cs" />
     <Compile Include="Migrations\202204101616076_pets.cs" />
     <Compile Include="Migrations\202204101616076_pets.designer.cs">
       <DependentUpon>202204101616076_pets.cs</DependentUpon>
@@ -446,7 +447,7 @@
     <Compile Include="Forms\Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Forms\UserAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -464,7 +465,7 @@
     <Compile Include="Forms\Wiki.Designer.cs">
       <DependentUpon>Wiki.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowState.cs" />
+    <Compile Include="Services\WindowState.cs" />
     <EmbeddedResource Include="Forms\Calendar.resx">
       <DependentUpon>Calendar.cs</DependentUpon>
     </EmbeddedResource>
@@ -593,9 +594,7 @@
   <ItemGroup>
     <None Include="Resources\medicine.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\id-card.png" />
   </ItemGroup>

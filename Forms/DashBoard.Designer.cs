@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.LeftPannel = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.medicinesPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.calendarPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.Refresh = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.visitsAmount = new System.Windows.Forms.Label();
@@ -276,7 +276,7 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Name = "label3";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Click += new System.EventHandler(this.Minimalize_Click);
             // 
             // guna2Panel1
             // 
@@ -308,19 +308,19 @@
             // 
             this.petsChart.BackColor = System.Drawing.SystemColors.Control;
             this.petsChart.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea3.Name = "ChartArea1";
-            this.petsChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.petsChart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.petsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.petsChart.Legends.Add(legend1);
             resources.ApplyResources(this.petsChart, "petsChart");
             this.petsChart.Name = "petsChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.IsValueShownAsLabel = true;
-            series3.Legend = "Legend1";
-            series3.Name = "performace";
-            series3.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.None;
-            this.petsChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "performace";
+            series1.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.None;
+            this.petsChart.Series.Add(series1);
             // 
             // label4
             // 
@@ -382,11 +382,11 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Name = "label11";
             // 
-            // medicinesPanel
+            // calendarPanel
             // 
-            resources.ApplyResources(this.medicinesPanel, "medicinesPanel");
-            this.medicinesPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.medicinesPanel.Name = "medicinesPanel";
+            resources.ApplyResources(this.calendarPanel, "calendarPanel");
+            this.calendarPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.calendarPanel.Name = "calendarPanel";
             // 
             // Refresh
             // 
@@ -474,17 +474,17 @@
             // 
             // visitsChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.visitsChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.visitsChart.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.visitsChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.visitsChart.Legends.Add(legend2);
             resources.ApplyResources(this.visitsChart, "visitsChart");
             this.visitsChart.Name = "visitsChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "visits";
-            this.visitsChart.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "visits";
+            this.visitsChart.Series.Add(series2);
             // 
             // label12
             // 
@@ -503,7 +503,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Refresh);
-            this.Controls.Add(this.medicinesPanel);
+            this.Controls.Add(this.calendarPanel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -578,7 +578,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.FlowLayoutPanel medicinesPanel;
+        private System.Windows.Forms.FlowLayoutPanel calendarPanel;
         private Guna.UI2.WinForms.Guna2Button Refresh;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label visitsAmount;

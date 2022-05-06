@@ -54,7 +54,7 @@ namespace VetClinicMS
                                 Global.Surname = user.surname;
                                 Global.Usermode = user.role;
                                 Global.UserId = user.id;
-                                windowState.openDashboard(this);
+                                windowState.OpenDashBoard(this);
                             } else
                             {
                                 MessageBox.Show("Wrong login data!");
@@ -71,11 +71,6 @@ namespace VetClinicMS
                     MessageBox.Show("Error: " + exception.Message);
                 }
             }
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -19,6 +19,13 @@ namespace VetClinicMS
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
+
+            if (Global.Usermode != 1)
+            {
+                this.guna2Button5.Hide();
+                this.pictureBox5.Hide();
+            }
+
             this.LoadUserControls();
         }
 
@@ -29,32 +36,32 @@ namespace VetClinicMS
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            windowState.openWiki(this);
+            windowState.OpenWiki(this);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            windowState.openMedicines(this);
+            windowState.OpenMedicines(this);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            windowState.openPets(this);
+            windowState.OpenPets(this);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            windowState.openCalendar(this);
+            windowState.OpenCalendar(this);
         }
 
         private void Logo_Click(object sender, EventArgs e)
         {
-            windowState.openDashboard(this);
+            windowState.OpenDashBoard(this);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            windowState.Minimalize(this);
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -143,6 +150,11 @@ namespace VetClinicMS
             roleBox.Text = "";
             password.Text = "";
             email.Text = "";
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            windowState.LogOut(this);
         }
 
         private void LoadUserControls()

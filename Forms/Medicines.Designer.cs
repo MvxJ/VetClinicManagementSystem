@@ -128,7 +128,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 15;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            this.pictureBox7.Click += new System.EventHandler(this.CloseWindow);
             // 
             // label1
             // 
@@ -181,7 +181,7 @@
             this.guna2Button5.TabIndex = 12;
             this.guna2Button5.Text = "User Administration";
             this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
+            this.guna2Button5.Click += new System.EventHandler(this.OpenUserAdministration);
             // 
             // pictureBox4
             // 
@@ -322,6 +322,7 @@
             this.LogOutButton.Size = new System.Drawing.Size(181, 41);
             this.LogOutButton.TabIndex = 0;
             this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // label3
             // 

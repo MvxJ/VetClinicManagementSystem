@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using VetClinicMS.Models;
+using VetClinicMS.UserControlls;
 
 namespace VetClinicMS
 {
@@ -21,7 +22,7 @@ namespace VetClinicMS
             InitializeComponent();
             UserText.Text = Global.UserBanner;
             
-            if (Global.Usermode == 0)
+            if (Global.Usermode != 1)
             {
                 this.guna2Button5.Hide();
                 this.pictureBox5.Hide();
@@ -32,6 +33,42 @@ namespace VetClinicMS
             this.countArticles();
             this.countMeds();
             this.countVisits();
+            this.loadCalenadr();
+        }
+
+        private void loadCalenadr()
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                var events = database.Events.OrderBy(e => e.from).ToList();
+
+                if (Global.Usermode == 2)
+                {
+                    events = events.Where(e => e.doctorId == Global.UserId).ToList();
+                }
+
+                var today = DateTime.Now.Date;
+                var tomorrow = today.AddDays(1).Date;
+
+                events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
+
+                calendarPanel.Controls.Clear();
+
+                events.ForEach(single => {
+                    EventControl eventControl = new EventControl();
+                    eventControl.Id = single.id;
+                    eventControl.Title = single.title;
+                    eventControl.Description = single.description;
+                    eventControl.FromDate = single.from;
+                    eventControl.ToDate = single.to;
+                    eventControl.Phone = single.phone;
+                    eventControl.Email = single.email;
+                    eventControl.PetId = single.petId;
+                    eventControl.DoctorId = single.doctorId;
+                    eventControl.setValues();
+                    calendarPanel.Controls.Add(eventControl);
+                });
+            }
         }
 
         private void countUsers()
@@ -116,12 +153,12 @@ namespace VetClinicMS
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            windowState.openCalendar(this);
+            windowState.OpenCalendar(this);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            windowState.openPets(this);
+            windowState.OpenPets(this);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -131,28 +168,27 @@ namespace VetClinicMS
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            windowState.openMedicines(this);
+            windowState.OpenMedicines(this);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            windowState.openWiki(this);
+            windowState.OpenWiki(this);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            windowState.openAdministration(this);
+            windowState.OpenUserAdministration(this);
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Minimalize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            windowState.Minimalize(this);
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.LogOut(this);
+            windowState.LogOut(this);
         }
 
         private void Refresh_Click(object sender, EventArgs e)
