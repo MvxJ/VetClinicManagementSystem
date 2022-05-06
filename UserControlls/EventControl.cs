@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 
 namespace VetClinicMS.UserControlls
 {
-    public partial class EventControl : UserControl
+    public partial class EventControl : UserControl, IUserControl
     {
         public EventControl()
         {
@@ -82,7 +84,7 @@ namespace VetClinicMS.UserControlls
             set { _to = value; }
         }
 
-        public void setValues()
+        public void SetValues()
         {
             eventId.Text = Id.ToString();
             fromValue.Text = FromDate.ToString();
@@ -91,18 +93,10 @@ namespace VetClinicMS.UserControlls
             descriptionValue.Text = Description;
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        public void DeleteObject(object sender, EventArgs e)
         {
-            using (ModelContext database = new ModelContext())
-            {
-                int id = Int32.Parse(eventId.Text);
-                var events = database.Events.First(c => c.id == id);
-                if (events != null)
-                {
-                    database.Events.Remove(events);
-                    database.SaveChanges();
-                }
-            }
+            EventsService eventService = new EventsService();
+            eventService.delete(Id);
         }
     }
 }

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 
 namespace VetClinicMS
 {
-    public partial class PetsControl : UserControl
+    public partial class PetsControl : UserControl, IUserControl
     {
         public PetsControl()
         {
@@ -61,7 +63,7 @@ namespace VetClinicMS
             set { _id = value; }
         }
 
-        public void setValues()
+        public void SetValues()
         {
             label1.Text = name;
             label2.Text = age.ToString();
@@ -72,19 +74,10 @@ namespace VetClinicMS
 
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        public void DeleteObject(object sender, EventArgs e)
         {
-            using (ModelContext database = new ModelContext())
-            {
-                int id = Int32.Parse(petID.Text);
-                var pet = database.PetList.First(c => c.petId == id);
-                if (pet != null)
-                {
-                    database.PetList.Remove(pet);
-                    database.SaveChanges();
-
-                }
-            }
+            PetsService petsService = new PetsService();
+            petsService.delete(id);
         }
     }
 }

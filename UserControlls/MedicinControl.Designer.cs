@@ -89,7 +89,7 @@
             this.Delete.Size = new System.Drawing.Size(88, 23);
             this.Delete.TabIndex = 28;
             this.Delete.Text = "Delete";
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            this.Delete.Click += new System.EventHandler(this.DeleteObject);
             // 
             // textPrice
             // 

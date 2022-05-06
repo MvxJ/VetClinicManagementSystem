@@ -118,7 +118,7 @@ namespace VetClinicMS
                     petControl.owner = pet.onwer;
                     petControl.id = pet.petId;
                     petControl.image = pet.image;
-                    petControl.setValues();
+                    petControl.SetValues();
                     petControl.Click += new System.EventHandler(this.PetsControl_Click);
                     panel1.Controls.Add(petControl);
                 });
@@ -142,7 +142,7 @@ namespace VetClinicMS
                     petControl.owner = pet.onwer;
                     petControl.id = pet.petId;
                     petControl.image = pet.image;
-                    petControl.setValues();
+                    petControl.SetValues();
                     petControl.Click += new System.EventHandler(this.PetsControl_Click);
                     panel1.Controls.Add(petControl);
                 });

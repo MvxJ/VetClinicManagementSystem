@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
 
 namespace VetClinicMS.UserControlls
 {
-    public partial class AdministrationUserControl : UserControl
+    public partial class AdministrationUserControl : UserControl, IUserControl
     {
+        readonly UserService userService = new UserService();
+
         public AdministrationUserControl()
         {
             InitializeComponent();
@@ -68,42 +71,18 @@ namespace VetClinicMS.UserControlls
             set { _role = value; }
         }
 
-        public void setValues()
+        public void SetValues()
         {
-            string roles = "";
-            switch (Role)
-            {
-                case 1:
-                    roles = "Local Admins";
-                    break;
-                case 2:
-                    roles = "Doctor";
-                    break;
-                case 0:
-                    roles = "Recepcionist";
-                    break;
-            }
-
-            role.Text = roles;
+            role.Text = userService.SelectRole(Role);
             email.Text = Email;
             surnameName.Text = Names + " " + Surname;
             uName.Text = UserName;
             uId.Text = Id.ToString();
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        public void DeleteObject(object sender, EventArgs e)
         {
-            using (ModelContext database = new ModelContext())
-            {
-                int id = Int32.Parse(uId.Text);
-                var user = database.Users.First(c => c.id == id);
-                if (user != null)
-                {
-                    database.Users.Remove(user);
-                    database.SaveChanges();
-
-                }
-            }
+            userService.delete(Id);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -9,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 using VetClinicMS.UserControlls;
 
 namespace VetClinicMS
 {
     public partial class Medicines : Form
     {
+        readonly MedicineService medicineService = new MedicineService();
         readonly WindowState windowState = new WindowState();
 
         List<MedicineModel> medicines = null;
@@ -49,7 +52,7 @@ namespace VetClinicMS
                     medicineControl.description = med.description;
                     medicineControl.stock = med.stock;
                     medicineControl.price = med.price;
-                    medicineControl.setValues();
+                    medicineControl.SetValues();
                     medicineControl.Click += new System.EventHandler(this.UserControl_Click);
                     medicinesPanel.Controls.Add(medicineControl);
                 });
@@ -58,38 +61,21 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
+            NameValueCollection list = new NameValueCollection();
+            list["id"] = medId.Text;
+            list["category"] = category.Text;
+            list["name"] = name.Text;
+            list["description"] = description.Text;
+            list["price"] = price.Text;
+            list["stock"] = stock.Text;
+
             if (medId.Text == "")
             {
-                using (var database = new ModelContext())
-                {
-                    var med = new MedicineModel()
-                    {
-                        category = category.Text,
-                        name = name.Text,
-                        description = description.Text,
-                        price = float.Parse(price.Text),
-                        stock = Int32.Parse(stock.Text)
-                    };
-
-                    database.Medicine.Add(med);
-                    database.SaveChanges();
-                }
+                medicineService.create(list);
             }
             else
             {
-                using (var database = new ModelContext())
-                {
-                    int id = Int32.Parse(medId.Text);
-                    var med = database.Medicine.Where(p => p.id == id).First();
-                    
-                    med.name = name.Text;
-                    med.description = description.Text;
-                    med.category = category.Text;
-                    med.price = float.Parse(price.Text);
-                    med.stock = Int32.Parse(stock.Text);
-
-                    database.SaveChanges();
-                }
+                medicineService.update(list);
             }
         }
 
@@ -112,7 +98,7 @@ namespace VetClinicMS
             description.Text = medicine.description;
             medId.Text = medicine.id.ToString();
             price.Text = medicine.price.ToString();
-        }
+        } 
 
         private void CloseWindow(object sender, EventArgs e)
         {
@@ -161,7 +147,7 @@ namespace VetClinicMS
                 medicineControl.description = med.description;
                 medicineControl.stock = med.stock;
                 medicineControl.price = med.price;
-                medicineControl.setValues();
+                medicineControl.SetValues();
                 medicineControl.Click += new System.EventHandler(this.UserControl_Click);
                 medicinesPanel.Controls.Add(medicineControl);
             });
@@ -189,7 +175,7 @@ namespace VetClinicMS
                     medicineControl.description = med.description;
                     medicineControl.stock = med.stock;
                     medicineControl.price = med.price;
-                    medicineControl.setValues();
+                    medicineControl.SetValues();
                     medicineControl.Click += new System.EventHandler(this.UserControl_Click);
                     medicinesPanel.Controls.Add(medicineControl);
                 });

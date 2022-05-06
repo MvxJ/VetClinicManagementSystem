@@ -14,6 +14,7 @@ namespace VetClinicMS
 {
     public partial class UserAdministration : Form
     {
+        readonly UserService userService = new UserService();
         readonly WindowState windowState = new WindowState();
         public UserAdministration()
         {
@@ -70,21 +71,6 @@ namespace VetClinicMS
             {
                 using (var database = new ModelContext())
                 {
-                    int roleInt = 0;
-                    string role = roleBox.Text;
-                    switch (role)
-                    {
-                        case "Local Admins":
-                            roleInt = 1;
-                            break;
-                        case "Doctor":
-                            roleInt = 2;
-                            break;
-                        case "Recepcionist":
-                            roleInt = 0;
-                            break;
-                    }
-
                     string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
 
                     var user = new UserModel()
@@ -92,7 +78,7 @@ namespace VetClinicMS
                         username = userName.Text,
                         name = name.Text,
                         surname = surname.Text,
-                        role = roleInt,
+                        role = userService.GetRoleId(roleBox.Text),
                         email = email.Text,
                         password = passwordHash
                     };
@@ -107,27 +93,11 @@ namespace VetClinicMS
                 {
                     int id = Int32.Parse(userId.Text);
                     var user = database.Users.Where(p => p.id == id).First();
-                    int roleInt = 0;
-                    string role = roleBox.Text;
-                    switch (role)
-                    {
-                        case "Local Admins":
-                            roleInt = 1;
-                            break;
-                        case "Doctor":
-                            roleInt = 2;
-                            break;
-                        case "Recepcionist":
-                            roleInt = 0;
-                            break;
-                    }
-
-                    
 
                     user.username = userName.Text;
                     user.name = name.Text;
                     user.surname = surname.Text;
-                    user.role = roleInt;
+                    user.role = userService.GetRoleId(roleBox.Text);
                     user.email = email.Text;
 
                     if (password.Text != "")
@@ -173,7 +143,7 @@ namespace VetClinicMS
                     userControl.Email = user.email;
                     userControl.Id = user.id;
                     userControl.Role = user.role;
-                    userControl.setValues();
+                    userControl.SetValues();
                     userControl.Click += new System.EventHandler(this.UserControl_Click);
                     panel1.Controls.Add(userControl);
                 });
@@ -183,27 +153,12 @@ namespace VetClinicMS
         private void UserControl_Click(object sender, EventArgs e)
         {
             AdministrationUserControl user = (AdministrationUserControl)sender;
-            string roles = "";
-            switch (user.Role)
-            {
-                case 1:
-                    roles = "Local Admins";
-                    break;
-                case 2:
-                    roles = "Doctor";
-                    break;
-                case 0:
-                    roles = "Recepcionist";
-                    break;
-            }
-
-            
             name.Text = user.Names;
             surname.Text = user.Surname;
             userName.Text = user.UserName;
             email.Text = user.Email;
             userId.Text = user.Id.ToString();
-            roleBox.Text = roles;
+            roleBox.Text = userService.SelectRole(user.Role);
             password.Text = "";
         }
 
@@ -234,7 +189,7 @@ namespace VetClinicMS
                     userControl.Email = user.email;
                     userControl.Id = user.id;
                     userControl.Role = user.role;
-                    userControl.setValues();
+                    userControl.SetValues();
                     userControl.Click += new System.EventHandler(this.UserControl_Click);
                     panel1.Controls.Add(userControl);
                 });

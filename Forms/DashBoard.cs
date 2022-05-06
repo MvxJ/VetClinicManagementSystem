@@ -65,7 +65,7 @@ namespace VetClinicMS
                     eventControl.Email = single.email;
                     eventControl.PetId = single.petId;
                     eventControl.DoctorId = single.doctorId;
-                    eventControl.setValues();
+                    eventControl.SetValues();
                     calendarPanel.Controls.Add(eventControl);
                 });
             }

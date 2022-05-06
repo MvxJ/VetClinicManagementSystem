@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 
 namespace VetClinicMS.UserControlls
 {
-    public partial class MedicinControl : UserControl
+    public partial class MedicinControl : UserControl, IUserControl
     {
+        readonly MedicineService medicineService = new MedicineService();
+
         public MedicinControl()
         {
             InitializeComponent();
@@ -59,7 +63,7 @@ namespace VetClinicMS.UserControlls
             set { _stock = value; }
         }
 
-        public void setValues()
+        public void SetValues()
         {
             textMedicine.Text = "Name: " + medicine;
             textCategory.Text = "Category: " + category;
@@ -69,18 +73,9 @@ namespace VetClinicMS.UserControlls
             textPrice.Text = "Pirce: " + price.ToString();
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        public void DeleteObject(object sender, EventArgs e)
         {
-            using (ModelContext database = new ModelContext())
-            {
-                int id = Int32.Parse(textId.Text);
-                var medicine = database.Medicine.First(c => c.id == id);
-                if (medicine != null)
-                {
-                    database.Medicine.Remove(medicine);
-                    database.SaveChanges();
-                }
-            }
+            medicineService.delete(id);
         }
     }
 }

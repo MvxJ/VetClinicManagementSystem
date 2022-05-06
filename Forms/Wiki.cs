@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -8,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 using VetClinicMS.UserControlls;
 
 namespace VetClinicMS
 {
     public partial class Wiki : Form
     {
+        readonly ArticleService articleService = new ArticleService();
         readonly WindowState windowState = new WindowState();
 
         private List<ArticleModel> ArticlesList = new List<ArticleModel>();
@@ -48,7 +51,7 @@ namespace VetClinicMS
                     articleControl.UpdateBy = article.UpdateBy;
                     articleControl.Description = article.Short;
                     articleControl.Id = article.Id;
-                    articleControl.setValues();
+                    articleControl.SetValues();
                     articleControl.Click += new System.EventHandler(this.ArticleControl_Click);
                     panel1.Controls.Add(articleControl);
                 });
@@ -137,39 +140,20 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
+            NameValueCollection list = new NameValueCollection();
+            list["id"] = articleId.Text;
+            list["title"] = title.Text;
+            list["description"] = description.Text;
+            list["content"] = content.Text;
+            list["author"] = author.Text;
+
             if (articleId.Text == "")
             {
-                using (var database = new ModelContext())
-                {
-                    var article = new ArticleModel()
-                    {
-                        Title = title.Text,
-                        Short = description.Text,
-                        Content = content.Text,
-                        Author = Global.UserBanner,
-                        CreateAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now,
-                        UpdateBy = ""
-                    };
-
-                    database.Articles.Add(article);
-                    database.SaveChanges();
-                }
+                articleService.create(list);
             }
             else
             {
-                using (var database = new ModelContext())
-                {
-                    int id = Int32.Parse(articleId.Text);
-                    var article = database.Articles.Where(p => p.Id == id).First();
-                    article.Title = title.Text;
-                    article.Content = content.Text;
-                    article.Content = description.Text;
-                    article.UpdatedAt = DateTime.Now;
-                    article.UpdateBy = Global.UserBanner;
-
-                    database.SaveChanges();
-                }
+                articleService.update(list);
             }
 
             this.LoadArticles();
@@ -198,7 +182,7 @@ namespace VetClinicMS
                    articleControl.UpdateBy = article.UpdateBy;
                    articleControl.Description = article.Short;
                    articleControl.Id = article.Id;
-                   articleControl.setValues();
+                   articleControl.SetValues();
                    articleControl.Click += new System.EventHandler(this.ArticleControl_Click);
                    panel1.Controls.Add(articleControl);
                });

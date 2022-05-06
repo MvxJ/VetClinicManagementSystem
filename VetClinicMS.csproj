@@ -351,6 +351,8 @@
     <Compile Include="Forms\Medicines.Designer.cs">
       <DependentUpon>Medicines.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICrudOperation.cs" />
+    <Compile Include="Interfaces\IUserControl.cs" />
     <Compile Include="Interfaces\IWindowState.cs" />
     <Compile Include="Migrations\202204101616076_pets.cs" />
     <Compile Include="Migrations\202204101616076_pets.designer.cs">
@@ -409,6 +411,10 @@
     <Compile Include="Forms\Pets.Designer.cs">
       <DependentUpon>Pets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\EventsService.cs" />
+    <Compile Include="Services\MedicineService.cs" />
+    <Compile Include="Services\PetsService.cs" />
     <Compile Include="UserControlls\AdministrationUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

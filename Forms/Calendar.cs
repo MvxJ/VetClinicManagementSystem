@@ -1,15 +1,18 @@
 ﻿using ServiceStack.Script;
 using System;
+using System.Collections.Specialized;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 using VetClinicMS.UserControlls;
 
 namespace VetClinicMS
 {
     public partial class Calendar : Form
     {
+        readonly EventsService eventsService = new EventsService();
         readonly WindowState windowState = new WindowState();
         public Calendar()
         {
@@ -68,7 +71,7 @@ namespace VetClinicMS
                     eventControl.PetId = single.petId;
                     eventControl.DoctorId = single.doctorId;
                     eventControl.Click += new System.EventHandler(this.EventControl_Click);
-                    eventControl.setValues();
+                    eventControl.SetValues();
                     eventsPanel.Controls.Add(eventControl);
                 });
             }
@@ -139,44 +142,24 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
+            NameValueCollection list = new NameValueCollection();
+            list["id"] = singleEventId.Text;
+            list["title"] = eventName.Text;
+            list["description"] = eventDescription.Text;
+            list["email"] = emailValue.Text;
+            list["phone"] = phoneValue.Text;
+            list["petId"] = petsCombo.SelectedValue.ToString();
+            list["doctorId"] = doctorCombo.SelectedValue.ToString();
+            list["from"] = fromValue.Text;
+            list["to"] = toValue.Text;
+
             if (singleEventId.Text == "")
             {
-                using (var database = new ModelContext())
-                {
-                    var newEvent = new EventModel()
-                    {
-                        title = eventName.Text,
-                        description = eventDescription.Text,
-                        email = emailValue.Text,
-                        phone = phoneValue.Text,
-                        petId = Int32.Parse(petsCombo.SelectedValue.ToString()),
-                        doctorId = Int32.Parse(doctorCombo.SelectedValue.ToString()),
-                        from = DateTime.Parse(fromValue.Text),
-                        to = DateTime.Parse(toValue.Text)
-                    };
-
-                    database.Events.Add(newEvent);
-                    database.SaveChanges();
-                }
+                eventsService.create(list);
             }
             else
             {
-                using (var database = new ModelContext())
-                {
-                    int id = Int32.Parse(singleEventId.Text);
-                    var singleEvent = database.Events.Where(p => p.id == id).First();
-
-                    singleEvent.title = eventName.Text;
-                    singleEvent.description = eventDescription.Text;
-                    singleEvent.email = emailValue.Text;
-                    singleEvent.phone = phoneValue.Text;
-                    singleEvent.doctorId = Int32.Parse(doctorCombo.SelectedValue.ToString());
-                    singleEvent.petId = Int32.Parse(petsCombo.SelectedValue.ToString());
-                    singleEvent.from = DateTime.Parse(fromValue.Text);
-                    singleEvent.to = DateTime.Parse(toValue.Text);
-
-                    database.SaveChanges();
-                }
+                eventsService.update(list);
             }
         }
 

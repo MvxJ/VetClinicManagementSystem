@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 
 namespace VetClinicMS.UserControlls
 {
-    public partial class ArticleControl : UserControl
+    public partial class ArticleControl : UserControl, IUserControl
     {
         public ArticleControl()
         {
@@ -75,7 +77,7 @@ namespace VetClinicMS.UserControlls
             set { _content = value; }
         }
 
-        public void setValues()
+        public void SetValues()
         {
             articleId.Text = Id.ToString();
             articleName.Text = "Title: " + Title;
@@ -93,19 +95,10 @@ namespace VetClinicMS.UserControlls
             }
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        public void DeleteObject(object sender, EventArgs e)
         {
-            using (ModelContext database = new ModelContext())
-            {
-                int id = Int32.Parse(articleId.Text);
-                var article = database.Articles.First(c => c.Id == id);
-                if (article != null)
-                {
-                    database.Articles.Remove(article);
-                    database.SaveChanges();
-                     
-                }
-            }
+            ArticleService articleService = new ArticleService();
+            articleService.delete(Id);
         }
     }
 }
