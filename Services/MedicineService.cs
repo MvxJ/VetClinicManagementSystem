@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.UserControlls;
 
 namespace VetClinicMS.Services
 {
@@ -59,6 +60,39 @@ namespace VetClinicMS.Services
 
                 database.Medicine.Add(med);
                 database.SaveChanges();
+            }
+        }
+
+        public void fetchUsers(Medicines form, string searchQuery, Boolean available)
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                var medicines = database.Medicine.ToList();
+                form.medicinesPanel.Controls.Clear();
+                
+                if (searchQuery != null) {
+                    medicines = medicines.ToList().Where(a => a.name.Contains(searchQuery) || a.category.Contains(searchQuery)).ToList();
+                }
+
+                if (available == true)
+                {
+                    medicines = medicines.ToList().Where(a => a.stock > 0).ToList();
+                }
+
+                form.medicines = medicines;
+
+                medicines.ForEach(med => {
+                    MedicinControl medicineControl = new MedicinControl();
+                    medicineControl.id = med.id;
+                    medicineControl.medicine = med.name;
+                    medicineControl.category = med.category;
+                    medicineControl.description = med.description;
+                    medicineControl.stock = med.stock;
+                    medicineControl.price = med.price;
+                    medicineControl.SetValues();
+                    medicineControl.Click += new System.EventHandler(form.UserControl_Click);
+                    form.medicinesPanel.Controls.Add(medicineControl);
+                });
             }
         }
     }

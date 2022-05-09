@@ -20,7 +20,7 @@ namespace VetClinicMS
         readonly MedicineService medicineService = new MedicineService();
         readonly WindowState windowState = new WindowState();
 
-        List<MedicineModel> medicines = null;
+        public List<MedicineModel> medicines = null;
 
         public Medicines()
         {
@@ -38,25 +38,7 @@ namespace VetClinicMS
 
         private void LoadUserControls()
         {
-            using (ModelContext database = new ModelContext())
-            {
-                medicinesPanel.Controls.Clear();
-                var medicines = database.Medicine.ToList();
-                this.medicines = database.Medicine.ToList();
-
-                medicines.ForEach(med => {
-                    MedicinControl medicineControl = new MedicinControl();
-                    medicineControl.id = med.id;
-                    medicineControl.medicine = med.name;
-                    medicineControl.category = med.category;
-                    medicineControl.description = med.description;
-                    medicineControl.stock = med.stock;
-                    medicineControl.price = med.price;
-                    medicineControl.SetValues();
-                    medicineControl.Click += new System.EventHandler(this.UserControl_Click);
-                    medicinesPanel.Controls.Add(medicineControl);
-                });
-            }
+            medicineService.fetchUsers(this, null, false);
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -89,7 +71,7 @@ namespace VetClinicMS
             price.Text = "";
         }
 
-        private void UserControl_Click(object sender, EventArgs e)
+        public void UserControl_Click(object sender, EventArgs e)
         {
             MedicinControl medicine = (MedicinControl)sender;
             name.Text = medicine.medicine;
@@ -137,20 +119,7 @@ namespace VetClinicMS
 
         private void Available_Click(object sender, EventArgs e)
         {
-            medicinesPanel.Controls.Clear();
-            this.medicines = medicines.Where(p => p.stock > 0).ToList();
-            this.medicines.ForEach(med => {
-                MedicinControl medicineControl = new MedicinControl();
-                medicineControl.id = med.id;
-                medicineControl.medicine = med.name;
-                medicineControl.category = med.category;
-                medicineControl.description = med.description;
-                medicineControl.stock = med.stock;
-                medicineControl.price = med.price;
-                medicineControl.SetValues();
-                medicineControl.Click += new System.EventHandler(this.UserControl_Click);
-                medicinesPanel.Controls.Add(medicineControl);
-            });
+            medicineService.fetchUsers(this, searchBox.Text, true);
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -160,26 +129,7 @@ namespace VetClinicMS
 
         private void Search_Click(object sender, EventArgs e)
         {
-            using (ModelContext database = new ModelContext())
-            {
-                medicinesPanel.Controls.Clear();
-                string search = searchBox.Text;
-                var medicines = database.Medicine.Where(a => a.name.Contains(search) || a.category.Contains(search)).ToList();
-                this.medicines = database.Medicine.Where(a => a.name.Contains(search) || a.category.Contains(search)).ToList();
-
-                medicines.ForEach(med => {
-                    MedicinControl medicineControl = new MedicinControl();
-                    medicineControl.id = med.id;
-                    medicineControl.medicine = med.name;
-                    medicineControl.category = med.category;
-                    medicineControl.description = med.description;
-                    medicineControl.stock = med.stock;
-                    medicineControl.price = med.price;
-                    medicineControl.SetValues();
-                    medicineControl.Click += new System.EventHandler(this.UserControl_Click);
-                    medicinesPanel.Controls.Add(medicineControl);
-                });
-            }
+            medicineService.fetchUsers(this, searchBox.Text, false);
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)

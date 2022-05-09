@@ -19,7 +19,7 @@ namespace VetClinicMS
         readonly ArticleService articleService = new ArticleService();
         readonly WindowState windowState = new WindowState();
 
-        private List<ArticleModel> ArticlesList = new List<ArticleModel>();
+        public List<ArticleModel> ArticlesList = new List<ArticleModel>();
         public Wiki()
         {
             InitializeComponent();
@@ -36,31 +36,10 @@ namespace VetClinicMS
 
         private void LoadArticles()
         {
-            using (ModelContext database = new ModelContext())
-            {
-                panel1.Controls.Clear();
-                var articles = database.Articles.ToList();
-
-                articles.ForEach(article => {
-                    ArticleControl articleControl = new ArticleControl();
-                    articleControl.Author = article.Author;
-                    articleControl.Title = article.Title;
-                    articleControl.Content = article.Content;
-                    articleControl.CreatedAt = article.CreateAt;
-                    articleControl.UpdatedAt = article.UpdatedAt;
-                    articleControl.UpdateBy = article.UpdateBy;
-                    articleControl.Description = article.Short;
-                    articleControl.Id = article.Id;
-                    articleControl.SetValues();
-                    articleControl.Click += new System.EventHandler(this.ArticleControl_Click);
-                    panel1.Controls.Add(articleControl);
-                });
-
-                this.ArticlesList = articles;
-            }
+            articleService.fetchArticles(this, null);
         }
 
-        private void ArticleControl_Click(object sender, EventArgs e)
+        public void ArticleControl_Click(object sender, EventArgs e)
         {
             ArticleControl article = (ArticleControl)sender;
 
@@ -163,29 +142,7 @@ namespace VetClinicMS
         {
             if (searchBox.Text != "")
             {
-                this.panel1.Controls.Clear();
-                var articles = ArticlesList.Where(
-                    a => a.Title.Contains(searchBox.Text) || 
-                    a.Short.Contains(searchBox.Text) ||
-                    a.Content.Contains(searchBox.Text) ||
-                    a.Author.Contains(searchBox.Text) ||
-                    a.UpdateBy.Contains(searchBox.Text)
-               ).ToList();
-
-               articles.ForEach(article => {
-                   ArticleControl articleControl = new ArticleControl();
-                   articleControl.Author = article.Author;
-                   articleControl.Title = article.Title;
-                   articleControl.Content = article.Content;
-                   articleControl.CreatedAt = article.CreateAt;
-                   articleControl.UpdatedAt = article.UpdatedAt;
-                   articleControl.UpdateBy = article.UpdateBy;
-                   articleControl.Description = article.Short;
-                   articleControl.Id = article.Id;
-                   articleControl.SetValues();
-                   articleControl.Click += new System.EventHandler(this.ArticleControl_Click);
-                   panel1.Controls.Add(articleControl);
-               });
+                articleService.fetchArticles(this, searchBox.Text);
             }
         }
     }

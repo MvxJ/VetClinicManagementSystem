@@ -738,7 +738,7 @@
         private System.Windows.Forms.TextBox UserText;
         private Guna.UI2.WinForms.Guna2Button Search;
         private Guna.UI2.WinForms.Guna2Button Refresh;
-        private System.Windows.Forms.FlowLayoutPanel medicinesPanel;
+        public System.Windows.Forms.FlowLayoutPanel medicinesPanel;
         private Guna.UI2.WinForms.Guna2TextBox searchBox;
         private Guna.UI2.WinForms.Guna2Button Available;
         private System.Windows.Forms.Panel panel2;

@@ -765,7 +765,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox UserText;
-        private System.Windows.Forms.FlowLayoutPanel eventsPanel;
+        public System.Windows.Forms.FlowLayoutPanel eventsPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
@@ -774,8 +774,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox petsCombo;
-        private System.Windows.Forms.ComboBox doctorCombo;
+        public System.Windows.Forms.ComboBox petsCombo;
+        public System.Windows.Forms.ComboBox doctorCombo;
         private Guna.UI2.WinForms.Guna2TextBox eventDescription;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker toValue;

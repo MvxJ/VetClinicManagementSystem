@@ -14,11 +14,11 @@ namespace VetClinicMS
     {
         readonly EventsService eventsService = new EventsService();
         readonly WindowState windowState = new WindowState();
+
         public Calendar()
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
-
 
             this.onLoad(null);
         }
@@ -26,58 +26,11 @@ namespace VetClinicMS
         private void onLoad(string date)
         {
             eventsPanel.Controls.Clear();
-
-            using (ModelContext database = new ModelContext())
-            {
-                var doctors = database.Users.Where(u => u.role == 2).ToList();
-                var pets = database.PetList.ToList();
-
-                var events = database.Events.OrderBy(e => e.from).ToList();
-
-                if (Global.Usermode == 2) {
-                    events = events.Where(e => e.doctorId == Global.UserId).ToList();
-                }
-
-                if (date != null)
-                {
-                    var today = DateTime.ParseExact(date, "dd.MM.yyyy", null);
-                    var tomorrow = DateTime.ParseExact(date, "dd.MM.yyyy", null).AddDays(1);
-                    events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
-                } else
-                {
-                    var today = DateTime.Now.Date;
-                    var tomorrow = today.AddDays(1).Date;
-
-                    events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
-                }
-
-                doctorCombo.DataSource = doctors;
-                doctorCombo.ValueMember = "id";
-                doctorCombo.DisplayMember = "username";
-
-                petsCombo.DataSource = pets;
-                petsCombo.ValueMember = "petId";
-                petsCombo.DisplayMember = "name";
-
-                events.ForEach(single => {
-                    EventControl eventControl = new EventControl();
-                    eventControl.Id = single.id;
-                    eventControl.Title = single.title;
-                    eventControl.Description = single.description;
-                    eventControl.FromDate = single.from;
-                    eventControl.ToDate = single.to;
-                    eventControl.Phone = single.phone;
-                    eventControl.Email = single.email;
-                    eventControl.PetId = single.petId;
-                    eventControl.DoctorId = single.doctorId;
-                    eventControl.Click += new System.EventHandler(this.EventControl_Click);
-                    eventControl.SetValues();
-                    eventsPanel.Controls.Add(eventControl);
-                });
-            }
+            eventsService.fetchEvents(this, date);
+            eventsService.fetchDoctorsAndPets(this);
         }
 
-        private void EventControl_Click(object sender, EventArgs e)
+        public void EventControl_Click(object sender, EventArgs e)
         {
             EventControl singleEvent = (EventControl)sender;
 
