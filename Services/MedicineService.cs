@@ -63,7 +63,7 @@ namespace VetClinicMS.Services
             }
         }
 
-        public void fetchUsers(Medicines form, string searchQuery, Boolean available)
+        public void fetchMedicines(Medicines form, string searchQuery, Boolean available)
         {
             using (ModelContext database = new ModelContext())
             {

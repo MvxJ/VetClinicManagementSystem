@@ -753,7 +753,7 @@
         private Guna.UI2.WinForms.Guna2TextBox name;
         private Guna.UI2.WinForms.Guna2Button Save;
         private Guna.UI2.WinForms.Guna2Button CancelModification;
-        private System.Windows.Forms.FlowLayoutPanel panel1;
+        public System.Windows.Forms.FlowLayoutPanel panel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox password;

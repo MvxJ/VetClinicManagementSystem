@@ -711,7 +711,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TextBox UserText;
-        private System.Windows.Forms.FlowLayoutPanel panel1;
+        public System.Windows.Forms.FlowLayoutPanel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox8;
         private Guna.UI2.WinForms.Guna2Button Save;

@@ -19,6 +19,7 @@ namespace VetClinicMS
     {
         readonly MedicineService medicineService = new MedicineService();
         readonly WindowState windowState = new WindowState();
+        readonly UserService userService = new UserService();
 
         public List<MedicineModel> medicines = null;
 
@@ -27,7 +28,7 @@ namespace VetClinicMS
             InitializeComponent();
             UserText.Text = Global.UserBanner;
 
-            if (Global.Usermode != 1)
+            if (!userService.checkUserAccess())
             {
                 this.guna2Button5.Hide();
                 this.pictureBox5.Hide();
@@ -38,7 +39,7 @@ namespace VetClinicMS
 
         private void LoadUserControls()
         {
-            medicineService.fetchUsers(this, null, false);
+            medicineService.fetchMedicines(this, null, false);
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace VetClinicMS
 
         private void Available_Click(object sender, EventArgs e)
         {
-            medicineService.fetchUsers(this, searchBox.Text, true);
+            medicineService.fetchMedicines(this, searchBox.Text, true);
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -129,7 +130,7 @@ namespace VetClinicMS
 
         private void Search_Click(object sender, EventArgs e)
         {
-            medicineService.fetchUsers(this, searchBox.Text, false);
+            medicineService.fetchMedicines(this, searchBox.Text, false);
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)

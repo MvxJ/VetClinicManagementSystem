@@ -117,20 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="id-card" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\id-card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="doctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\doctor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="medicine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\medicine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="newspaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newspaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pet-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pet-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

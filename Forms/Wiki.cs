@@ -18,6 +18,7 @@ namespace VetClinicMS
     {
         readonly ArticleService articleService = new ArticleService();
         readonly WindowState windowState = new WindowState();
+        readonly UserService userService = new UserService();
 
         public List<ArticleModel> ArticlesList = new List<ArticleModel>();
         public Wiki()
@@ -25,7 +26,7 @@ namespace VetClinicMS
             InitializeComponent();
             UserText.Text = Global.UserBanner;
 
-            if (Global.Usermode != 1)
+            if (!userService.checkUserAccess())
             {
                 this.guna2Button5.Hide();
                 this.pictureBox5.Hide();

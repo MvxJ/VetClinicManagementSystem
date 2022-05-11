@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 using VetClinicMS.UserControlls;
 
 namespace VetClinicMS
@@ -16,13 +17,15 @@ namespace VetClinicMS
     public partial class DashBoard : Form
     {
         readonly WindowState windowState = new WindowState();
+        readonly UserService userService = new UserService();
+        readonly EventsService eventsService = new EventsService();
 
         public DashBoard()
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
             
-            if (Global.Usermode != 1)
+            if (!userService.checkUserAccess())
             {
                 this.guna2Button5.Hide();
                 this.pictureBox5.Hide();
@@ -50,7 +53,7 @@ namespace VetClinicMS
                 var today = DateTime.Now.Date;
                 var tomorrow = today.AddDays(1).Date;
 
-                events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
+                events = eventsService.getEvents();
 
                 calendarPanel.Controls.Clear();
 

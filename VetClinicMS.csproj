@@ -338,6 +338,11 @@
     <Compile Include="Forms\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205111756456_update-article-column-type.cs" />
+    <Compile Include="Migrations\202205111756456_update-article-column-type.designer.cs">
+      <DependentUpon>202205111756456_update-article-column-type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\Global.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -520,6 +525,9 @@
     <EmbeddedResource Include="Migrations\202205041809109_update_event_model.resx">
       <DependentUpon>202205041809109_update_event_model.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205111756456_update-article-column-type.resx">
+      <DependentUpon>202205111756456_update-article-column-type.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\AdministrationUserControl.resx">
       <DependentUpon>AdministrationUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -600,7 +608,6 @@
   <ItemGroup>
     <None Include="Resources\medicine.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\id-card.png" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -9,13 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VetClinicMS.Models;
+using VetClinicMS.Services;
 
 namespace VetClinicMS
 {
     public partial class Pets : Form
     {
-        UserService userService = new UserService();
+        PetsService petsService = new PetsService();
         WindowState windowState = new WindowState();
+        UserService userService = new UserService();
+
+        public List<PetsModel> pets = null;
+
         public Pets()
         {
             InitializeComponent();
@@ -65,7 +71,7 @@ namespace VetClinicMS
             windowState.Minimalize(this);
         }
 
-        private void PetsControl_Click(object sender, EventArgs e)
+        public void PetsControl_Click(object sender, EventArgs e)
         {
             PetsControl pet = (PetsControl)sender;
             guna2TextBox3.Text = pet.name;
@@ -104,49 +110,13 @@ namespace VetClinicMS
 
         private void LoadUserControls()
         {
-            using (ModelContext database = new ModelContext())
-            {
-                panel1.Controls.Clear();
-                var petsList = database.PetList.ToList();
-
-                petsList.ForEach(pet => {
-                    PetsControl petControl = new PetsControl();
-                    petControl.note = pet.note;
-                    petControl.pet = pet.pet;
-                    petControl.age = pet.age;
-                    petControl.name = pet.name;
-                    petControl.owner = pet.onwer;
-                    petControl.id = pet.petId;
-                    petControl.image = pet.image;
-                    petControl.SetValues();
-                    petControl.Click += new System.EventHandler(this.PetsControl_Click);
-                    panel1.Controls.Add(petControl);
-                });
-            }
+            petsService.fetchPets(this, null);
         }
 
         private void SearchUserControl()
         {
-            using (ModelContext database = new ModelContext())
-            {
-                string search = guna2TextBox1.Text;
-                panel1.Controls.Clear();
-                var petsList = database.PetList.Where(a => a.name == search || a.onwer == search || a.pet == search);
-
-                petsList.ToList().ForEach(pet => {
-                    PetsControl petControl = new PetsControl();
-                    petControl.note = pet.note;
-                    petControl.pet = pet.pet;
-                    petControl.age = pet.age;
-                    petControl.name = pet.name;
-                    petControl.owner = pet.onwer;
-                    petControl.id = pet.petId;
-                    petControl.image = pet.image;
-                    petControl.SetValues();
-                    petControl.Click += new System.EventHandler(this.PetsControl_Click);
-                    panel1.Controls.Add(petControl);
-                });
-            }
+            string search = guna2TextBox1.Text;
+            petsService.fetchPets(this, search);
         }
 
         private void Search_Click(object sender, EventArgs e)
@@ -156,43 +126,23 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
+            NameValueCollection list = new NameValueCollection();
+
+            list["id"] = petId.Text;
+            list["owner"] = guna2TextBox6.Text;
+            list["age"] = guna2TextBox5.Text;
+            list["pet"] = guna2TextBox4.Text;
+            list["image"] = pictureBox8.ImageLocation;
+            list["name"] = guna2TextBox3.Text;
+            list["note"] = guna2TextBox2.Text;
+
             if (petId.Text == "")
             {
-                using (var database = new ModelContext())
-                {
-                    var pets = database.PetList.ToList();
-                    int id = pets.Count + 1;
-                    int age = Int32.Parse(guna2TextBox5.Text);
-                    var pet = new PetsModel()
-                    {
-                        onwer = guna2TextBox6.Text,
-                        age = age,
-                        note = guna2TextBox2.Text,
-                        name = guna2TextBox3.Text,
-                        pet = guna2TextBox4.Text,
-                        image = pictureBox8.ImageLocation
-                    };
-
-                    database.PetList.Add(pet);
-                    database.SaveChanges();
-                }
+                petsService.create(list);
             }
             else
             {
-                using (var database = new ModelContext())
-                {
-                    int id = Int32.Parse(petId.Text);
-                    var pet = database.PetList.Where(p => p.petId == id).First();
-
-                    pet.onwer = guna2TextBox6.Text;
-                    pet.age = Int32.Parse(guna2TextBox5.Text);
-                    pet.note = guna2TextBox2.Text;
-                    pet.name = guna2TextBox3.Text;
-                    pet.pet = guna2TextBox4.Text;
-                    pet.image = pictureBox8.ImageLocation;
-
-                    database.SaveChanges();
-                }
+                petsService.update(list);
             }
         }
 

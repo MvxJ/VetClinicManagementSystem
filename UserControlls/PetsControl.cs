@@ -70,8 +70,10 @@ namespace VetClinicMS
             label3.Text = owner;
             label4.Text = pet;
             petID.Text = id.ToString();
-            pictureBox1.ImageLocation = image;
-
+            if (image != "")
+            {
+                pictureBox1.ImageLocation = image;
+            }
         }
 
         public void DeleteObject(object sender, EventArgs e)

@@ -14,11 +14,18 @@ namespace VetClinicMS
     {
         readonly EventsService eventsService = new EventsService();
         readonly WindowState windowState = new WindowState();
+        readonly UserService userService = new UserService();
 
         public Calendar()
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
+
+            if (!userService.checkUserAccess())
+            {
+                this.guna2Button5.Hide();
+                this.pictureBox5.Hide();
+            }
 
             this.onLoad(null);
         }

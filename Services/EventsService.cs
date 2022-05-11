@@ -128,5 +128,27 @@ namespace VetClinicMS.Services
                 form.petsCombo.DisplayMember = "name";
             }
         }
+
+        public List<EventModel> getEvents()
+        {
+
+
+            using (ModelContext database = new ModelContext())
+            {
+                var events = database.Events.OrderBy(e => e.from).ToList();
+
+                if (Global.Usermode == 2)
+                {
+                    events = events.Where(e => e.doctorId == Global.UserId).ToList();
+                }
+
+                var today = DateTime.Now.Date;
+                var tomorrow = today.AddDays(1).Date;
+
+                events = events.ToList().Where(e => e.from >= today && e.from <= tomorrow).ToList();
+
+                return events;
+            }
+        }
     }
 }

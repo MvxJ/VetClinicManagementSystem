@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VetClinicMS.Interfaces;
 using VetClinicMS.Models;
+using VetClinicMS.UserControlls;
 
 namespace VetClinicMS
 {
@@ -74,7 +75,21 @@ namespace VetClinicMS
 
         public void create(NameValueCollection list)
         {
-            throw new NotImplementedException();
+            using (var database = new ModelContext())
+            {
+                var user = new UserModel()
+                {
+                    username = list["userName"],
+                    name = list["name"],
+                    surname = list["surname"],
+                    role = Int32.Parse(list["role"]),
+                    email = list["email"],
+                    password = list["password"]
+                };
+
+                database.Users.Add(user);
+                database.SaveChanges();
+            }
         }
 
         public void delete(int id)
@@ -93,7 +108,61 @@ namespace VetClinicMS
 
         public void update(NameValueCollection list)
         {
-            throw new NotImplementedException();
+            using (var database = new ModelContext())
+            {
+                int id = Int32.Parse(list["id"]);
+                var user = database.Users.Where(p => p.id == id).First();
+
+                user.username = list["userName"];
+                user.name = list["name"];
+                user.surname = list["surname"];
+                user.role = Int32.Parse(list["role"]);
+                user.email = list["email"];
+
+                if (list["password"] != "")
+                {
+                    user.password = list["password"];
+                }
+
+                database.SaveChanges();
+            }
+        }
+
+        public void fetchUsers(UserAdministration form, string searchText)
+        {
+            using (ModelContext database = new ModelContext())
+            {
+                form.panel1.Controls.Clear();
+                var userList = database.Users.ToList();
+
+                if (searchText != null)
+                {
+                    userList = userList.Where(a => 
+                        a.name == searchText 
+                        || a.surname == searchText
+                        || a.email == searchText
+                        || a.username == searchText
+                    ).ToList();
+                }
+
+                form.users = userList;
+
+                userList.ForEach(user => {
+                    AdministrationUserControl userControl = new AdministrationUserControl();
+                    userControl.Password = user.password;
+                    userControl.Surname = user.surname;
+                    userControl.Names = user.name;
+                    userControl.UserName = user.username;
+                    userControl.Email = user.email;
+                    userControl.Id = user.id;
+                    userControl.Role = user.role;
+                    userControl.SetValues();
+                    userControl.Click += new System.EventHandler(form.UserControl_Click);
+                    form.panel1.Controls.Add(userControl);
+                });
+
+
+            }
         }
     }
 }

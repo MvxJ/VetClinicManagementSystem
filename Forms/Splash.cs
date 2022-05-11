@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VetClinicMS.Models;
+using VetClinicMS.Services;
 
 namespace VetClinicMS
 {
@@ -29,6 +31,12 @@ namespace VetClinicMS
             startpoint += 1;
             LoadingProgressBar.Value = startpoint;
             LoadingValueLabel.Text = startpoint.ToString() + "%";
+
+            if (LoadingProgressBar.Value == 75)
+            {
+                var dataService = new DataService();
+                dataService.seedData();
+            }
 
             if (LoadingProgressBar.Value == 100)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -16,12 +17,14 @@ namespace VetClinicMS
     {
         readonly UserService userService = new UserService();
         readonly WindowState windowState = new WindowState();
+        public List<UserModel> users = null;
+
         public UserAdministration()
         {
             InitializeComponent();
             UserText.Text = Global.UserBanner;
 
-            if (Global.Usermode != 1)
+            if (!userService.checkUserAccess())
             {
                 this.guna2Button5.Hide();
                 this.pictureBox5.Hide();
@@ -67,47 +70,33 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
+            NameValueCollection list = new NameValueCollection();
+
+            list["id"] = userId.Text;
+            list["userName"] = userName.Text;
+            list["name"] = name.Text;
+            list["surname"] = surname.Text;
+            list["role"] = userService.GetRoleId(userId.Text).ToString();
+            list["email"] = email.Text;
+            list["password"] = "";
+            
+
             if (userId.Text == "")
             {
-                using (var database = new ModelContext())
-                {
-                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
+                string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
+                list["password"] = passwordHash;
 
-                    var user = new UserModel()
-                    {
-                        username = userName.Text,
-                        name = name.Text,
-                        surname = surname.Text,
-                        role = userService.GetRoleId(roleBox.Text),
-                        email = email.Text,
-                        password = passwordHash
-                    };
-
-                    database.Users.Add(user);
-                    database.SaveChanges();
-                }
+                userService.create(list);
             }
             else
             {
-                using (var database = new ModelContext())
+                if (password.Text != "")
                 {
-                    int id = Int32.Parse(userId.Text);
-                    var user = database.Users.Where(p => p.id == id).First();
-
-                    user.username = userName.Text;
-                    user.name = name.Text;
-                    user.surname = surname.Text;
-                    user.role = userService.GetRoleId(roleBox.Text);
-                    user.email = email.Text;
-
-                    if (password.Text != "")
-                    {
-                        string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
-                        user.password = passwordHash;
-                    }
-
-                    database.SaveChanges();
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
+                    list["password"] = passwordHash;
                 }
+
+                userService.update(list);
             }
         }
 
@@ -129,28 +118,10 @@ namespace VetClinicMS
 
         private void LoadUserControls()
         {
-            using (ModelContext database = new ModelContext())
-            {
-                panel1.Controls.Clear();
-                var userList = database.Users.ToList();
-
-                userList.ForEach(user => {
-                    AdministrationUserControl userControl = new AdministrationUserControl();
-                    userControl.Password = user.password;
-                    userControl.Surname = user.surname;
-                    userControl.Names = user.name;
-                    userControl.UserName = user.username;
-                    userControl.Email = user.email;
-                    userControl.Id = user.id;
-                    userControl.Role = user.role;
-                    userControl.SetValues();
-                    userControl.Click += new System.EventHandler(this.UserControl_Click);
-                    panel1.Controls.Add(userControl);
-                });
-            }
+            userService.fetchUsers(this, null);
         }
 
-        private void UserControl_Click(object sender, EventArgs e)
+        public void UserControl_Click(object sender, EventArgs e)
         {
             AdministrationUserControl user = (AdministrationUserControl)sender;
             name.Text = user.Names;
@@ -174,26 +145,8 @@ namespace VetClinicMS
 
         private void SearchUserAdminControl()
         {
-            using (ModelContext database = new ModelContext())
-            {
-                string search = guna2TextBox1.Text;
-                panel1.Controls.Clear();
-                var usersList = database.Users.Where(a => a.name == search || a.surname == search || a.email == search || a.username == search);
-
-                usersList.ToList().ForEach(user => {
-                    AdministrationUserControl userControl = new AdministrationUserControl();
-                    userControl.Password = user.password;
-                    userControl.Surname = user.surname;
-                    userControl.Names = user.name;
-                    userControl.UserName = user.username;
-                    userControl.Email = user.email;
-                    userControl.Id = user.id;
-                    userControl.Role = user.role;
-                    userControl.SetValues();
-                    userControl.Click += new System.EventHandler(this.UserControl_Click);
-                    panel1.Controls.Add(userControl);
-                });
-            }
+            string search = guna2TextBox1.Text;
+            userService.fetchUsers(this, search);
         }
     }
 }
