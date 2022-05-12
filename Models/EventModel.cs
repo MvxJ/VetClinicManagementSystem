@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,9 @@ namespace VetClinicMS.Models
         public string email { get; set; }
         [StringLength(255)]
         public string description { get; set; }
-        [DataType(DataType.DateTime)]
+        [Column(TypeName = "datetime2")]
         public DateTime from { get; set; }
-        [DataType(DataType.DateTime)]
+        [Column(TypeName = "datetime2")]
         public DateTime to { get; set; }
     }
 }

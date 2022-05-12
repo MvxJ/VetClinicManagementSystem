@@ -109,7 +109,28 @@ namespace VetClinicMS.Services
 
                 if (!database.Events.Any())
                 {
+                    EventModel singleEvent = new EventModel();
+                    singleEvent.description = "-";
+                    singleEvent.email = "";
+                    singleEvent.title = "Tick ​​vaccine";
+                    singleEvent.to = DateTime.Now.AddHours(1);
+                    singleEvent.from = DateTime.Now;
+                    singleEvent.phone = "123123123";
+                    singleEvent.doctorId = 2;
+                    singleEvent.petId = 1;
 
+                    EventModel singleEvent2 = new EventModel();
+                    singleEvent2.description = "-";
+                    singleEvent2.email = "";
+                    singleEvent2.title = "Removal of bandages from a wound";
+                    singleEvent2.to = DateTime.Now.AddHours(3);
+                    singleEvent2.from = DateTime.Now.AddHours(2);
+                    singleEvent2.phone = "321321321";
+                    singleEvent2.doctorId = 2;
+                    singleEvent2.petId = 2;
+
+                    database.Events.Add(singleEvent);
+                    database.Events.Add(singleEvent2);
                 }
 
                 if (!database.Medicine.Any())

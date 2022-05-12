@@ -636,7 +636,7 @@
             // pictureBox4
             // 
             this.pictureBox4.ErrorImage = null;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Image = global::VetClinicMS.Properties.Resources.dictionary;
             this.pictureBox4.Location = new System.Drawing.Point(5, 467);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(33, 45);
@@ -647,7 +647,7 @@
             // pictureBox3
             // 
             this.pictureBox3.ErrorImage = null;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = global::VetClinicMS.Properties.Resources.medicine_white_ico;
             this.pictureBox3.Location = new System.Drawing.Point(5, 398);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 45);
@@ -658,7 +658,7 @@
             // pictureBox2
             // 
             this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::VetClinicMS.Properties.Resources.track;
             this.pictureBox2.Location = new System.Drawing.Point(5, 334);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 45);

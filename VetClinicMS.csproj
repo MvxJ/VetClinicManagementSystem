@@ -342,6 +342,10 @@
     <Compile Include="Migrations\202205111756456_update-article-column-type.designer.cs">
       <DependentUpon>202205111756456_update-article-column-type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205121836128_update_event_date_type.cs" />
+    <Compile Include="Migrations\202205121836128_update_event_date_type.designer.cs">
+      <DependentUpon>202205121836128_update_event_date_type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\Global.cs" />
     <Compile Include="Forms\LoginForm.cs">
@@ -431,6 +435,12 @@
     </Compile>
     <Compile Include="UserControlls\ArticleControl.Designer.cs">
       <DependentUpon>ArticleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\DashBoardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\DashBoardUserControl.Designer.cs">
+      <DependentUpon>DashBoardUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlls\EventControl.cs">
       <SubType>UserControl</SubType>
@@ -528,11 +538,17 @@
     <EmbeddedResource Include="Migrations\202205111756456_update-article-column-type.resx">
       <DependentUpon>202205111756456_update-article-column-type.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121836128_update_event_date_type.resx">
+      <DependentUpon>202205121836128_update_event_date_type.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\AdministrationUserControl.resx">
       <DependentUpon>AdministrationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\ArticleControl.resx">
       <DependentUpon>ArticleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlls\DashBoardUserControl.resx">
+      <DependentUpon>DashBoardUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\EventControl.resx">
       <DependentUpon>EventControl.cs</DependentUpon>
@@ -622,6 +638,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dictionary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medicine_white_ico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

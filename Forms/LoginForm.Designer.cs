@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CloseLoginFormLabel = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,12 +189,23 @@
             this.guna2Panel1.Size = new System.Drawing.Size(363, 67);
             this.guna2Panel1.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(80, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 9;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(361, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -223,6 +235,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label CloseLoginFormLabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.Label label4;
     }
 }
 
