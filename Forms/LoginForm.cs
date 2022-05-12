@@ -57,18 +57,18 @@ namespace VetClinicMS
                                 windowState.OpenDashBoard(this);
                             } else
                             {
-                                MessageBox.Show("Wrong login data!");
+                                label4.Text = "Wrong login data!";
                             }
 
                         }
                         else
                         {
-                            MessageBox.Show("Wrong login data!");
+                            label4.Text = "Wrong login data!";
                         }
                     }
                     
                 } catch (Exception exception) {
-                    MessageBox.Show("Error: " + exception.Message);
+                    label4.Text = "Error: " + exception.Message;
                 }
             }
         }

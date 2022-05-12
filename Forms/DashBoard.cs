@@ -58,8 +58,7 @@ namespace VetClinicMS
                 calendarPanel.Controls.Clear();
 
                 events.ForEach(single => {
-                    EventControl eventControl = new EventControl();
-                    eventControl.Id = single.id;
+                    DashBoardUserControl eventControl = new DashBoardUserControl();
                     eventControl.Title = single.title;
                     eventControl.Description = single.description;
                     eventControl.FromDate = single.from;

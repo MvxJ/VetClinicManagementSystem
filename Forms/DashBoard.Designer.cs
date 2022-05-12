@@ -28,23 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             this.LeftPannel = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.LogOutButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.UserText = new System.Windows.Forms.TextBox();
             this.petsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,24 +82,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.visitsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LogOutButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.LeftPannel.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.petsChart)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visitsChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -98,6 +90,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petsChart)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.visitsChart)).BeginInit();
             this.SuspendLayout();
             // 
             // LeftPannel
@@ -121,11 +121,34 @@
             resources.ApplyResources(this.LeftPannel, "LeftPannel");
             this.LeftPannel.Name = "LeftPannel";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.pictureBox7, "pictureBox7");
+            this.pictureBox7.Image = global::VetClinicMS.Properties.Resources.power;
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
+            // 
+            // pictureBox6
+            // 
+            resources.ApplyResources(this.pictureBox6, "pictureBox6");
+            this.pictureBox6.Image = global::VetClinicMS.Properties.Resources.vet_logo;
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
+            this.pictureBox5.Image = global::VetClinicMS.Properties.Resources.avatar;
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.TabStop = false;
             // 
             // guna2Button5
             // 
@@ -142,6 +165,13 @@
             this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
+            // pictureBox4
+            // 
+            resources.ApplyResources(this.pictureBox4, "pictureBox4");
+            this.pictureBox4.Image = global::VetClinicMS.Properties.Resources.dictionary;
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.TabStop = false;
+            // 
             // guna2Button4
             // 
             this.guna2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -157,6 +187,13 @@
             this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
+            // pictureBox3
+            // 
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Image = global::VetClinicMS.Properties.Resources.medicine_white_ico;
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            // 
             // guna2Button3
             // 
             this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -170,6 +207,13 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Image = global::VetClinicMS.Properties.Resources.track;
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
             // 
             // guna2Button2
             // 
@@ -185,6 +229,13 @@
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Image = global::VetClinicMS.Properties.Resources.calendar;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // guna2Button1
             // 
             this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -199,6 +250,27 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // LogOutButton
+            // 
+            this.LogOutButton.ActiveBorderThickness = 1;
+            this.LogOutButton.ActiveCornerRadius = 20;
+            this.LogOutButton.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.LogOutButton.ActiveForecolor = System.Drawing.Color.White;
+            this.LogOutButton.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.LogOutButton.BackColor = System.Drawing.Color.SeaGreen;
+            resources.ApplyResources(this.LogOutButton, "LogOutButton");
+            this.LogOutButton.ButtonText = "Log Out";
+            this.LogOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogOutButton.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LogOutButton.IdleBorderThickness = 1;
+            this.LogOutButton.IdleCornerRadius = 20;
+            this.LogOutButton.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.LogOutButton.IdleForecolor = System.Drawing.Color.White;
+            this.LogOutButton.IdleLineColor = System.Drawing.Color.White;
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // label2
             // 
@@ -223,6 +295,14 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.SeaGreen;
             resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.SeaGreen;
+            resources.ApplyResources(this.pictureBox8, "pictureBox8");
+            this.pictureBox8.Image = global::VetClinicMS.Properties.Resources.doctor;
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.TabStop = false;
             // 
             // UserText
             // 
@@ -420,82 +500,6 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Name = "label12";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.SeaGreen;
-            resources.ApplyResources(this.pictureBox8, "pictureBox8");
-            this.pictureBox8.Image = global::VetClinicMS.Properties.Resources.doctor;
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBox7, "pictureBox7");
-            this.pictureBox7.Image = global::VetClinicMS.Properties.Resources.power;
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
-            // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(this.pictureBox6, "pictureBox6");
-            this.pictureBox6.Image = global::VetClinicMS.Properties.Resources.vet_logo;
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            resources.ApplyResources(this.pictureBox5, "pictureBox5");
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            resources.ApplyResources(this.pictureBox4, "pictureBox4");
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::VetClinicMS.Properties.Resources.calendar;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // LogOutButton
-            // 
-            this.LogOutButton.ActiveBorderThickness = 1;
-            this.LogOutButton.ActiveCornerRadius = 20;
-            this.LogOutButton.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.LogOutButton.ActiveForecolor = System.Drawing.Color.White;
-            this.LogOutButton.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.LogOutButton.BackColor = System.Drawing.Color.SeaGreen;
-            resources.ApplyResources(this.LogOutButton, "LogOutButton");
-            this.LogOutButton.ButtonText = "Log Out";
-            this.LogOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogOutButton.ForeColor = System.Drawing.Color.SeaGreen;
-            this.LogOutButton.IdleBorderThickness = 1;
-            this.LogOutButton.IdleCornerRadius = 20;
-            this.LogOutButton.IdleFillColor = System.Drawing.Color.SeaGreen;
-            this.LogOutButton.IdleForecolor = System.Drawing.Color.White;
-            this.LogOutButton.IdleLineColor = System.Drawing.Color.White;
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
             // DashBoard
             // 
             resources.ApplyResources(this, "$this");
@@ -524,8 +528,16 @@
             this.Name = "DashBoard";
             this.LeftPannel.ResumeLayout(false);
             this.LeftPannel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petsChart)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -536,14 +548,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visitsChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
