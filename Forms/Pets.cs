@@ -99,7 +99,8 @@ namespace VetClinicMS
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error occured", "Error");
+
+                label8.Text = exception.Message;
             }
         }
 
@@ -126,24 +127,31 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
-            NameValueCollection list = new NameValueCollection();
-
-            list["id"] = petId.Text;
-            list["owner"] = guna2TextBox6.Text;
-            list["age"] = guna2TextBox5.Text;
-            list["pet"] = guna2TextBox4.Text;
-            list["image"] = pictureBox8.ImageLocation;
-            list["name"] = guna2TextBox3.Text;
-            list["note"] = guna2TextBox2.Text;
-
-            if (petId.Text == "")
+            try
             {
-                petsService.create(list);
-            }
-            else
+                NameValueCollection list = new NameValueCollection();
+
+                list["id"] = petId.Text;
+                list["owner"] = guna2TextBox6.Text;
+                list["age"] = guna2TextBox5.Text;
+                list["pet"] = guna2TextBox4.Text;
+                list["image"] = pictureBox8.ImageLocation;
+                list["name"] = guna2TextBox3.Text;
+                list["note"] = guna2TextBox2.Text;
+
+                if (petId.Text == "")
+                {
+                    petsService.create(list);
+                }
+                else
+                {
+                    petsService.update(list);
+                }
+            } catch (Exception exception)
             {
-                petsService.update(list);
+                label8.Text = exception.Message;
             }
+            
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -160,6 +168,7 @@ namespace VetClinicMS
             guna2TextBox2.Text = "";
             petId.Text = "";
             pictureBox8.ImageLocation = "";
+            label8.Text = "";
         }
     }
 }

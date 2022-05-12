@@ -200,6 +200,7 @@ namespace VetClinicMS
             this.countArticles();
             this.countMeds();
             this.countVisits();
+            this.loadCalenadr();
         }
     }
 }

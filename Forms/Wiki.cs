@@ -111,6 +111,7 @@ namespace VetClinicMS
             created.Text = "";
             updated.Text = "";
             updatedBy.Text = "";
+            label6.Text = "";
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -120,20 +121,28 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
-            NameValueCollection list = new NameValueCollection();
-            list["id"] = articleId.Text;
-            list["title"] = title.Text;
-            list["description"] = description.Text;
-            list["content"] = content.Text;
-            list["author"] = author.Text;
+            try
+            {
+                NameValueCollection list = new NameValueCollection();
+                list["id"] = articleId.Text;
+                list["title"] = title.Text;
+                list["description"] = description.Text;
+                list["content"] = content.Text;
+                list["author"] = author.Text;
 
-            if (articleId.Text == "")
+                if (articleId.Text == "")
+                {
+                    articleService.create(list);
+                }
+                else
+                {
+                    articleService.update(list);
+                }
+
+            } 
+            catch (Exception ex)
             {
-                articleService.create(list);
-            }
-            else
-            {
-                articleService.update(list);
+                label6.Text = ex.Message;
             }
 
             this.LoadArticles();

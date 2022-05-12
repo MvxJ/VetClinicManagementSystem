@@ -97,29 +97,38 @@ namespace VetClinicMS
             petsCombo.SelectedValue = 0;
             fromValue.Text = "";
             toValue.Text = "";
+            label14.Text = "";
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            NameValueCollection list = new NameValueCollection();
-            list["id"] = singleEventId.Text;
-            list["title"] = eventName.Text;
-            list["description"] = eventDescription.Text;
-            list["email"] = emailValue.Text;
-            list["phone"] = phoneValue.Text;
-            list["petId"] = petsCombo.SelectedValue.ToString();
-            list["doctorId"] = doctorCombo.SelectedValue.ToString();
-            list["from"] = fromValue.Text;
-            list["to"] = toValue.Text;
+            try
+            {
+                NameValueCollection list = new NameValueCollection();
+                list["id"] = singleEventId.Text;
+                list["title"] = eventName.Text;
+                list["description"] = eventDescription.Text;
+                list["email"] = emailValue.Text;
+                list["phone"] = phoneValue.Text;
+                list["petId"] = petsCombo.SelectedValue.ToString();
+                list["doctorId"] = doctorCombo.SelectedValue.ToString();
+                list["from"] = fromValue.Text;
+                list["to"] = toValue.Text;
 
-            if (singleEventId.Text == "")
-            {
-                eventsService.create(list);
+                if (singleEventId.Text == "")
+                {
+                    eventsService.create(list);
+                }
+                else
+                {
+                    eventsService.update(list);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                eventsService.update(list);
+                label14.Text = ex.Message;
             }
+
         }
 
         private void Refresh_Click(object sender, EventArgs e)

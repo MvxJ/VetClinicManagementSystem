@@ -44,21 +44,28 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
-            NameValueCollection list = new NameValueCollection();
-            list["id"] = medId.Text;
-            list["category"] = category.Text;
-            list["name"] = name.Text;
-            list["description"] = description.Text;
-            list["price"] = price.Text;
-            list["stock"] = stock.Text;
+            try
+            {
+                NameValueCollection list = new NameValueCollection();
+                list["id"] = medId.Text;
+                list["category"] = category.Text;
+                list["name"] = name.Text;
+                list["description"] = description.Text;
+                list["price"] = price.Text;
+                list["stock"] = stock.Text;
 
-            if (medId.Text == "")
-            {
-                medicineService.create(list);
+                if (medId.Text == "")
+                {
+                    medicineService.create(list);
+                }
+                else
+                {
+                    medicineService.update(list);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                medicineService.update(list);
+                label8.Text = ex.Message;
             }
         }
 
@@ -70,6 +77,7 @@ namespace VetClinicMS
             description.Text = "";
             stock.Text = "";
             price.Text = "";
+            label8.Text = "";
         }
 
         public void UserControl_Click(object sender, EventArgs e)

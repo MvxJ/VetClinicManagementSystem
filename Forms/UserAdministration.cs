@@ -70,33 +70,40 @@ namespace VetClinicMS
 
         private void Save_Click(object sender, EventArgs e)
         {
-            NameValueCollection list = new NameValueCollection();
-
-            list["id"] = userId.Text;
-            list["userName"] = userName.Text;
-            list["name"] = name.Text;
-            list["surname"] = surname.Text;
-            list["role"] = userService.GetRoleId(userId.Text).ToString();
-            list["email"] = email.Text;
-            list["password"] = "";
-            
-
-            if (userId.Text == "")
+            try
             {
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
-                list["password"] = passwordHash;
+                NameValueCollection list = new NameValueCollection();
 
-                userService.create(list);
-            }
-            else
-            {
-                if (password.Text != "")
+                list["id"] = userId.Text;
+                list["userName"] = userName.Text;
+                list["name"] = name.Text;
+                list["surname"] = surname.Text;
+                list["role"] = userService.GetRoleId(userId.Text).ToString();
+                list["email"] = email.Text;
+                list["password"] = "";
+
+
+                if (userId.Text == "")
                 {
                     string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
                     list["password"] = passwordHash;
-                }
 
-                userService.update(list);
+                    userService.create(list);
+                }
+                else
+                {
+                    if (password.Text != "")
+                    {
+                        string passwordHash = BCrypt.Net.BCrypt.HashPassword(password.Text);
+                        list["password"] = passwordHash;
+                    }
+
+                    userService.update(list);
+                }
+            }
+            catch (Exception ex)
+            {
+                label9.Text = ex.Message;
             }
         }
 
@@ -109,6 +116,7 @@ namespace VetClinicMS
             roleBox.Text = "";
             password.Text = "";
             email.Text = "";
+            label9.Text = "";
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
